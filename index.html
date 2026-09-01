@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Закупка: система очистки воды</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💧</text></svg>">
+<style>
+  :root {
+    --ground: #FBFAF8; --card: #FFFFFF; --ink: #1A2325; --muted: #6B7678;
+    --faint: #97A0A1; --accent: #0E6B70; --accent-soft: #E4EFEF; --line: #E4E0DA;
+    --shadow: 0 1px 2px rgba(26,35,37,.05), 0 8px 24px -12px rgba(26,35,37,.12);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #121716; --card: #1A201F; --ink: #E9E7E2; --muted: #909997;
+      --faint: #6E7876; --accent: #57B9BD; --accent-soft: #1B2C2D; --line: #29302F;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.5);
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--ground); color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-size: 16px; line-height: 1.5; -webkit-font-smoothing: antialiased;
+    padding-bottom: 96px;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 26px 14px 8px; }
+
+  .eyebrow { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 9px; }
+  h1 { font-size: clamp(25px,6vw,33px); line-height: 1.15; margin: 0 0 12px; font-weight: 650; letter-spacing: -.02em; text-wrap: balance; }
+  .lede { color: var(--muted); font-size: 15px; margin: 0 0 22px; max-width: 54ch; }
+  .lede b { color: var(--ink); font-weight: 600; }
+
+  .callout { border: 1px solid var(--line); border-left: 3px solid var(--accent); background: var(--card); border-radius: 8px; padding: 15px; margin-bottom: 26px; }
+  .callout h2 { font-size: 14px; margin: 0 0 9px; font-weight: 650; }
+  .callout ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .callout li { font-size: 14px; color: var(--muted); padding-left: 15px; position: relative; }
+  .callout li::before { content: ""; position: absolute; left: 0; top: 9px; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+  .callout b { color: var(--ink); font-weight: 600; }
+
+  section { margin-bottom: 28px; }
+  .group-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 0 3px 9px; border-bottom: 1px solid var(--line); margin-bottom: 13px; }
+  .group-title { font-size: 13px; font-weight: 650; letter-spacing: .04em; text-transform: uppercase; }
+  .group-sum { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  ul.items { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .item { display: grid; grid-template-columns: auto 106px 1fr; gap: 12px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 12px; box-shadow: var(--shadow); transition: opacity .18s ease; }
+  .item.done { opacity: .45; }
+  .item.done .name { text-decoration: line-through; text-decoration-color: var(--faint); }
+  @media (max-width: 420px) { .item { grid-template-columns: auto 84px 1fr; gap: 10px; } }
+
+  .check { display: flex; align-items: flex-start; padding-top: 2px; cursor: pointer; }
+  .check input { position: absolute; opacity: 0; width: 0; height: 0; }
+  .box { width: 26px; height: 26px; border: 2px solid var(--line); border-radius: 7px; display: grid; place-items: center; transition: all .15s ease; background: var(--ground); }
+  .box::after { content: ""; width: 11px; height: 6px; border-left: 2.5px solid #fff; border-bottom: 2.5px solid #fff; transform: rotate(-45deg) scale(.4); opacity: 0; transition: all .15s ease; margin-top: -3px; }
+  .check input:checked + .box { background: var(--accent); border-color: var(--accent); }
+  .check input:checked + .box::after { opacity: 1; transform: rotate(-45deg) scale(1); }
+  .check input:focus-visible + .box { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .shot { display: block; width: 100%; border: 1px solid var(--line); border-radius: 7px; background: #fff; }
+
+  .name { font-size: 15.5px; font-weight: 600; margin: 0 0 6px; letter-spacing: -.01em; line-height: 1.3; }
+  .qty { display: inline-block; font-size: 12px; font-weight: 600; color: var(--accent); background: var(--accent-soft); padding: 1px 7px; border-radius: 5px; margin-left: 6px; vertical-align: 1px; }
+  .must { font-size: 13.5px; color: var(--muted); margin: 0 0 9px; }
+  .must b { color: var(--ink); font-weight: 600; }
+  .row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 5px; min-height: 38px; padding: 0 14px; border-radius: 8px; background: var(--accent); color: #fff; text-decoration: none; font-size: 14px; font-weight: 600; }
+  .btn:hover { filter: brightness(1.1); }
+  .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .btn svg { width: 13px; height: 13px; }
+  .price { font-size: 14.5px; font-weight: 650; font-variant-numeric: tabular-nums; color: var(--muted); }
+  .price b { color: var(--ink); }
+
+  .bar { position: fixed; left: 0; right: 0; bottom: 0; background: var(--card); border-top: 1px solid var(--line); padding: 11px 14px calc(11px + env(safe-area-inset-bottom)); box-shadow: 0 -4px 20px -8px rgba(0,0,0,.15); }
+  .bar-in { max-width: 720px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 13px; }
+  .bar-label { font-size: 12px; color: var(--muted); }
+  .bar-val { font-size: 18px; font-weight: 680; font-variant-numeric: tabular-nums; letter-spacing: -.01em; }
+  .track { height: 5px; background: var(--line); border-radius: 3px; overflow: hidden; margin-top: 7px; }
+  .fill { height: 100%; background: var(--accent); width: 0%; transition: width .3s ease; border-radius: 3px; }
+  .reset { background: none; border: 1px solid var(--line); color: var(--muted); cursor: pointer; font-size: 12px; padding: 7px 11px; border-radius: 7px; font-family: inherit; white-space: nowrap; }
+  footer { text-align: center; font-size: 13px; color: var(--faint); padding: 2px 14px 18px; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">Подстёпки · Михаила Зюзина, 7</div>
+  <h1>Закупка системы очистки воды</h1>
+  <p class="lede">
+    13 позиций на Озоне, примерно <b>65 000 ₽</b>. У каждой — снимок карточки из поиска, чтобы
+    узнать товар с первого взгляда, и кнопка «Найти» с готовым запросом. Отмеченное сохраняется.
+  </p>
+
+  <div class="callout">
+    <h2>Как выбирать</h2>
+    <ul>
+      <li>Снимок — это <b>пример карточки</b>, а не единственный вариант. Цены и лоты на Озоне меняются каждый день.</li>
+      <li>Главный ориентир — <b>число отзывов</b>. Из подходящих по параметрам берите тот, у кого их больше: тысяча отзывов надёжнее, чем десяток.</li>
+      <li>Сверяйте <b>параметры</b>, они указаны у каждой позиции: диаметр, фракция, типоразмер. Если совпали — товар подходит.</li>
+      <li>Вся обвязка — на резьбу <b>1 дюйм</b>. Если у колонны окажется 3/4, краны и фитинги можно вернуть.</li>
+    </ul>
+  </div>
+
+  <section>
+    <div class="group-head"><div class="group-title">Магистраль — на весь дом</div><div class="group-sum">≈ 48 000 ₽</div></div>
+    <ul class="items">
+
+      <li class="item">
+        <label class="check"><input type="checkbox" data-price="13513"><span class="box"></span></label>
+        <img class="shot" src="img/01-kolonna.jpg" alt="Карточка: автоматический фильтр RunXin 1054">
+        <div>
+          <p class="name">Колонна умягчителя<span class="qty">1 шт</span></p>
+          <p class="must">Обязательно: размер <b>1054</b>, клапан <b>автоматический</b> (не ручной), в комплекте <b>солевой бак</b>. Подходят RunXin, Гейзер, Frotec.</p>
+          <div class="row">
+            <a class="btn" href="https://www.ozon.ru/search/?text=%D1%83%D0%BC%D1%8F%D0%B3%D1%87%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%201054%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%20%D1%81%D0%BE%D0%BB%D0%B5%D0%B2%D0%BE%D0%B9%20%D0%B1%D0%B0%D0%BA" target="_blank" rel="noopener">Найти<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h7v7M13 3L4 12"/></svg></a>
+            <span class="price"><b>13 500</b> – 17 000 ₽</span>
+          </div>
+        </div>
+      </li>
+
+      <li class="item">
+        <label class="check"><input type="checkbox" data-price="25500"><span class="box"></span></label>
+        <img class="shot" src="img/02-zagruzka.jpg" alt="Карточка: ионообменная смола Waterlux A">
+        <div>
+          <p class="name">Загрузка Waterlux A<span class="qty">45–50 л</span></p>
+          <p class="must">Комплексная загрузка от жёсткости и <b>марганца</b>. Фасовки бывают 12 и 25 л — берите так, чтобы вышло <b>45–50 литров</b> (два мешка по 25 или четыре по 12).</p>
+          <div class="row">
+            <a class="btn" href="https://www.ozon.ru/search/?text=Waterlux%20A%20%D0%B8%D0%BE%D0%BD%D0%BE%D0%BE%D0%B1%D0%BC%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F%20%D1%81%D0%BC%D0%BE%D0%BB%D0%B0%20%D0%B7%D0%B0%D0%B3%D1%80%D1%83%D0%B7%D0%BA%D0%B0" target="_blank" rel="noopener">Найти<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h7v7M13 3L4 12"/></svg></a>
+            <span class="price"><b>25 000</b> – 26 000 ₽</span>
+          </div>
+        </div>
+      </li>
+
+      <li class="item">
+        <label class="check"><input type="checkbox" data-price="1000"><span class="box"></span></label>
+        <img class="shot" src="img/03-kvarc.jpg" alt="Карточка: кварцевый песок гравий фракция 2-5 мм">
+        <div>
+          <p class="name">Кварц-подложка<span class="qty">10 кг</span></p>
+          <p class="must">Обязательно фракция <b>2–5 мм</b>. Засыпается на дно колонны под загрузку.</p>
+          <div class="row">
+            <a class="btn" href="https://www.ozon.ru/search/?text=%D0%BA%D0%B2%D0%B0%D1%80%D1%86%20%D0%B7%D0%B5%D1%80%D0%BD%D0%B8%D1%81%D1%82%D1%8B%D0%B9%202-5%20%D0%BC%D0%BC%2010%20%D0%BA%D0%B3" target="_blank" rel="noopener">Найти<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h7v7M13 3L4 12"/></svg></a>
+            <span class="price"><b>770</b> – 1 400 ₽</span>
+          </div>
+        </div>
+      </li>
+
+      <li class="item">
+        <label class="check"><input type="checkbox" data-price="2000"><span class="box"></span></label>
+        <img class="shot" src="img/04-mehfiltr.jpg" alt="Карточка: самопромывной фильтр предварительной очистки">
+        <div>
+          <p class="name">Фильтр грубой очистки<span class="qty">1 шт</span></p>
+          <p class="must">Обязательно: <b>самопромывной</b>, резьба <b>1 дюйм</b>, сетка <b>100 мкм</b>, корпус латунный. Не путать со сменными сетками по 150–400 ₽ — нам нужен фильтр целиком.</p>
+          <div class="row">
+            <a class="btn" href="https://www.ozon.ru/search/?text=%D1%84%D0%B8%D0%BB%D1%8C%D1%82%D1%80%20%D1%81%D0%B0%D0%BC%D0%BE%D0%BF%D1%80%D0%BE%D0%BC%D1%8B%D0%B2%D0%BD%D0%BE%D0%B9%201%20%D0%B4%D1%8E%D0%B9%D0%BC%20100%20%D0%BC%D0%BA%D0%BC%20%D0%BB%D0%B0%D1%82%D1%83%D0%BD%D1%8C" target="_blank" rel="noopener">Найти<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h7v7M13 3L4 12"/></svg></a>
+            <span class="price"><b>1 900</b> – 2 200 ₽</span>
+          </div>
+        </div>
+      </li>
+
+      <li class="item">
+        <label class="check"><input type="checkbox" data-price="3100"><span class="box"></span></label>
+        <img class="shot" src="img/05-korpus.jpg" alt="Карточка: корпус магистрального фильтра 10BB">
+        <div>
+          <p class="name">Корпус фильтра 10BB<span class="qty">1 шт</span></p>
+          <p class="must">Типоразмер <b>10BB</b> (он же Big Blue, Джамбо), для <b>холодной</b> воды, вход <b>1 дюйм</b>. Ставится после колонны.</p>
+          <div class="row">
+            <a class="btn" href="https://www.ozon.ru/search/?text=%D0%BA%D0%BE%D1%80%D0%BF%D1%83%D1%81%20%D0%BC%D0%B0%D0%B3%D0%B8%D1%81%D1%82%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%84%D0%B8%D0%BB%D1%8C%D1%82%D1%80%D0%B0%2010BB%20%D0%94%D0%B6%D0%B0%D0%BC%D0%B1%D0%BE%201%20%D0%B4%D1%8E%D0%B9%D0%BC" target="_blank" rel="noopener">Найти<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h7v7M13 3L4 12"/></svg></a>
+            <span class="price"><b>3 000</b> – 3 500 ₽</span>
+          </div>
+        </div>
+      </li>
+
+      <li class="item">
+        <label class="check"><input type="checkbox" data-price="500"><span class="box"></span></label>
+        <img class="shot" src="img/06-kartridzh.jpg" alt="Карточка: картридж полипропиленовый 10BB 5 мкм">
+        <div>
+          <p class="name">Картридж к корпусу<span class="qty">1 шт</span></p>
+          <p class="must">Полипропиленовый, типоразмер <b>10BB</b> (не 10SL — он тоньше и не влезет), тонкость <b>5 мкм</b>.</p>
+          <div class="row">
+            <a class="btn" href="https://www.ozon.ru/search/?text=%D0%BA%D0%B0%D1%80%D1%82%D1%80%D0%B8%D0%B4%D0%B6%20%D0%BF%D0%BE%D0%BB%D0%B8%D0%BF%D1%80%D0%BE%D0%BF%D0%B8%D0%BB%D0%B5%D0%BD%D0%BE%D0%B2%D1%8B%D0%B9%2010BB%205%20%D0%BC%D0%BA%D0%BC" target="_blank" rel="noopener">Найти<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h7v7M13 3L4 12"/></svg></a>
+            <span class="price"><b>420</b> – 600 ₽</span>
+          </div>
+        </div>
+      </li>
+
+      <li class="item">
+        <label class="check"><input type="checkbox" data-price="2800"><span class="box"></span></label>
+        <img class="shot" src="img/07-sol.jpg" alt="Карточка: соль таблетированная 25 кг">
+        <div>
+          <p class="name">Соль таблетированная<span class="qty">2 мешка</span></p>
+          <p class="must">Именно <b>для водоочистки</b> (не для посудомоечной машины), мешок <b>25 кг</b>. Марка любая: Rockmelt, Тульская, Мозырьсоль — состав одинаковый.</p>
+          <div class="row">
+            <a class="btn" href="https://www.ozon.ru/search/?text=%D1%81%D0%BE%D0%BB%D1%8C%20%D1%82%D0%B0%D0%B1%D0%BB%D0%B5%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D0%B0%D1%8F%2025%20%D0%BA%D0%B3%20%D0%B4%D0%BB%D1%8F%20%D0%B2%D0%BE%D0%B4%D0%BE%D0%BE%D1%87%D0%B8%D1%81%D1%82%D0%BA%D0%B8" target="_blank" rel="noopener">Найти<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h7v7M13 3L4 12"/></svg></a>
+            <span class="price">2 400 – 3 200 ₽</span>
+          </div>
+        </div>
+      </li>
+
+    </ul>
+  </section>
+
+  <section>
+    <div class="group-head"><div class="group-title">Питьевая вода — на кухню</div><div class="group-sum">≈ 13 500 ₽</div></div>
+    <ul class="items">
+      <li class="item">
+        <label class="check"><input type="checkbox" data-price="13446"><span class="box"></span></label>
+        <img class="shot" src="img/08-osmos.jpg" alt="Карточка: Аквафор Морион DWM-101SN">
+        <div>
+          <p class="name">Фильтр обратного осмоса<span class="qty">1 шт</span></p>
+          <p class="must">Аквафор Морион <b>DWM-101SN</b> — строго с буквой <b>N</b> на конце: эта версия возвращает в воду кальций и магний. Без N дешевле, но вода будет пустая.</p>
+          <div class="row">
+            <a class="btn" href="https://www.ozon.ru/search/?text=%D0%90%D0%BA%D0%B2%D0%B0%D1%84%D0%BE%D1%80%20%D0%9C%D0%BE%D1%80%D0%B8%D0%BE%D0%BD%20DWM-101SN" target="_blank" rel="noopener">Найти<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h7v7M13 3L4 12"/></svg></a>
+            <span class="price"><b>13 400</b> – 14 000 ₽</span>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="group-head"><div class="group-title">Обвязка — соединить всё вместе</div><div class="group-sum">≈ 3 500 ₽</div></div>
+    <ul class="items">
+
+      <li class="item">
+        <label class="check"><input type="checkbox" data-price="1400"><span class="box"></span></label>
+        <img class="shot" src="img/09-kran.jpg" alt="Карточка: кран шаровой 1 дюйм латунь">
+        <div>
+          <p class="name">Кран шаровой<span class="qty">3 шт</span></p>
+          <p class="must">Резьба <b>1 дюйм</b>, корпус <b>латунь</b>. Три штуки: на вход, на выход и на обвод.</p>
+          <div class="row">
+            <a class="btn" href="https://www.ozon.ru/search/?text=%D0%BA%D1%80%D0%B0%D0%BD%20%D1%88%D0%B0%D1%80%D0%BE%D0%B2%D0%BE%D0%B9%201%20%D0%B4%D1%8E%D0%B9%D0%BC%20%D0%BB%D0%B0%D1%82%D1%83%D0%BD%D1%8C" target="_blank" rel="noopener">Найти<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h7v7M13 3L4 12"/></svg></a>
+            <span class="price">1 400 – 2 800 ₽</span>
+          </div>
+        </div>
+      </li>
+
+      <li class="item">
+        <label class="check"><input type="checkbox" data-price="1476"><span class="box"></span></label>
+        <img class="shot" src="img/10-amerikanka.jpg" alt="Карточка: американка 1 дюйм латунь">
+        <div>
+          <p class="name">Американка<span class="qty">4 шт</span></p>
+          <p class="must">Разъёмное соединение, резьба <b>1 дюйм</b>, латунь. Нужны, чтобы снять колонну не разрезая трубы.</p>
+          <div class="row">
+            <a class="btn" href="https://www.ozon.ru/search/?text=%D0%B0%D0%BC%D0%B5%D1%80%D0%B8%D0%BA%D0%B0%D0%BD%D0%BA%D0%B0%201%20%D0%B4%D1%8E%D0%B9%D0%BC%20%D0%BB%D0%B0%D1%82%D1%83%D0%BD%D1%8C" target="_blank" rel="noopener">Найти<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h7v7M13 3L4 12"/></svg></a>
+            <span class="price">1 500 ₽</span>
+          </div>
+        </div>
+      </li>
+
+      <li class="item">
+        <label class="check"><input type="checkbox" data-price="800"><span class="box"></span></label>
+        <img class="shot" src="img/11-troynik.jpg" alt="Карточка: тройник 1 дюйм латунь">
+        <div>
+          <p class="name">Тройник<span class="qty">2 шт</span></p>
+          <p class="must">Равнопроходной <b>1×1×1 дюйм</b>, внутренняя резьба, латунь. Не переходной — все три выхода одного размера.</p>
+          <div class="row">
+            <a class="btn" href="https://www.ozon.ru/search/?text=%D1%82%D1%80%D0%BE%D0%B9%D0%BD%D0%B8%D0%BA%201%20%D0%B4%D1%8E%D0%B9%D0%BC%20%D0%BB%D0%B0%D1%82%D1%83%D0%BD%D1%8C%20%D0%B2%D0%BD%D1%83%D1%82%D1%80%D0%B5%D0%BD%D0%BD%D1%8F%D1%8F%20%D1%80%D0%B5%D0%B7%D1%8C%D0%B1%D0%B0" target="_blank" rel="noopener">Найти<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h7v7M13 3L4 12"/></svg></a>
+            <span class="price">750 – 830 ₽</span>
+          </div>
+        </div>
+      </li>
+
+      <li class="item">
+        <label class="check"><input type="checkbox" data-price="152"><span class="box"></span></label>
+        <img class="shot" src="img/12-len.jpg" alt="Карточка: паста и лён Unipak">
+        <div>
+          <p class="name">Лён и паста<span class="qty">1 набор</span></p>
+          <p class="must">Комплект <b>Unipak</b>: паста 25 г + лён 13 г. Для уплотнения резьбы, безопасна для питьевой воды.</p>
+          <div class="row">
+            <a class="btn" href="https://www.ozon.ru/search/?text=Unipak%20%D0%BA%D0%BE%D0%BC%D0%BF%D0%BB%D0%B5%D0%BA%D1%82%20%D0%BF%D0%B0%D1%81%D1%82%D0%B0%20%D0%BB%D1%91%D0%BD" target="_blank" rel="noopener">Найти<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h7v7M13 3L4 12"/></svg></a>
+            <span class="price">150 ₽</span>
+          </div>
+        </div>
+      </li>
+
+      <li class="item">
+        <label class="check"><input type="checkbox" data-price="200"><span class="box"></span></label>
+        <img class="shot" src="img/13-homut.jpg" alt="Карточка: хомуты червячные 16-27 мм">
+        <div>
+          <p class="name">Хомуты червячные<span class="qty">1 уп</span></p>
+          <p class="must">Размер <b>16–27 мм</b>, нержавейка, упаковка 5–10 штук. Для крепления сливного шланга.</p>
+          <div class="row">
+            <a class="btn" href="https://www.ozon.ru/search/?text=%D1%85%D0%BE%D0%BC%D1%83%D1%82%20%D1%87%D0%B5%D1%80%D0%B2%D1%8F%D1%87%D0%BD%D1%8B%D0%B9%2016-27%20%D0%BC%D0%BC%20%D0%BD%D0%B5%D1%80%D0%B6%D0%B0%D0%B2%D0%B5%D1%8E%D1%89%D0%B0%D1%8F%20%D1%81%D1%82%D0%B0%D0%BB%D1%8C" target="_blank" rel="noopener">Найти<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h7v7M13 3L4 12"/></svg></a>
+            <span class="price">140 – 230 ₽</span>
+          </div>
+        </div>
+      </li>
+
+    </ul>
+  </section>
+
+  <footer>Снимки карточек сделаны 1 сентября 2026 года — цены на Озоне с тех пор могли измениться</footer>
+</div>
+
+<div class="bar">
+  <div class="bar-in">
+    <div style="flex:1">
+      <div class="bar-label"><span id="cnt">0 из 13</span> · в корзине <span id="sum">0 ₽</span></div>
+      <div class="bar-val" id="left">Осталось на 65 000 ₽</div>
+      <div class="track"><div class="fill" id="fill"></div></div>
+    </div>
+    <button class="reset" id="reset" type="button">Сбросить</button>
+  </div>
+</div>
+
+<script>
+  var KEY = "voda-zakupka-v2";
+  var boxes = [].slice.call(document.querySelectorAll(".check input"));
+  var TOTAL = boxes.reduce(function (s, b) { return s + (+b.dataset.price); }, 0);
+  function fmt(n) { return n.toLocaleString("ru-RU") + " ₽"; }
+  function render() {
+    var done = 0, sum = 0;
+    boxes.forEach(function (b) {
+      var it = b.closest(".item");
+      if (b.checked) { done++; sum += +b.dataset.price; it.classList.add("done"); }
+      else it.classList.remove("done");
+    });
+    document.getElementById("cnt").textContent = done + " из " + boxes.length;
+    document.getElementById("sum").textContent = fmt(sum);
+    document.getElementById("left").textContent = done === boxes.length ? "Всё собрано" : "Осталось на " + fmt(TOTAL - sum);
+    document.getElementById("fill").style.width = (sum / TOTAL * 100) + "%";
+  }
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(boxes.map(function (b) { return b.checked; }))); } catch (e) {} }
+  try { (JSON.parse(localStorage.getItem(KEY) || "[]")).forEach(function (v, i) { if (boxes[i]) boxes[i].checked = v; }); } catch (e) {}
+  boxes.forEach(function (b) { b.addEventListener("change", function () { render(); save(); }); });
+  document.getElementById("reset").addEventListener("click", function () { boxes.forEach(function (b) { b.checked = false; }); render(); save(); });
+  render();
+</script>
+</body>
+</html>
