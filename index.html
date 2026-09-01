@@ -83,6 +83,26 @@
   .track { height: 5px; background: var(--line); border-radius: 3px; overflow: hidden; margin-top: 7px; }
   .fill { height: 100%; background: var(--accent); width: 0%; transition: width .3s ease; border-radius: 3px; }
   .reset { background: none; border: 1px solid var(--line); color: var(--muted); cursor: pointer; font-size: 12px; padding: 7px 11px; border-radius: 7px; font-family: inherit; white-space: nowrap; }
+  .pre { border: 1px solid var(--line); background: var(--card); border-radius: 10px; padding: 15px; margin-bottom: 26px; }
+  .pre h2 { font-size: 14px; margin: 0 0 10px; font-weight: 650; }
+  .pre ol { margin: 0; padding-left: 19px; display: flex; flex-direction: column; gap: 9px; }
+  .pre li { font-size: 14px; color: var(--muted); }
+  .pre b { color: var(--ink); font-weight: 600; }
+
+  .after { border-top: 2px solid var(--line); margin-top: 34px; padding-top: 22px; }
+  .after h2 { font-size: 19px; margin: 0 0 6px; font-weight: 650; letter-spacing: -.015em; }
+  .after .sub { font-size: 14px; color: var(--muted); margin: 0 0 18px; }
+  .after h3 { font-size: 13px; font-weight: 650; letter-spacing: .04em; text-transform: uppercase; margin: 22px 0 10px; color: var(--accent); }
+  .chain { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 13px; margin-bottom: 6px; }
+  .chain span { background: var(--accent-soft); color: var(--ink); padding: 5px 9px; border-radius: 6px; font-weight: 600; }
+  .chain i { color: var(--faint); font-style: normal; }
+  .setup { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 11px; counter-reset: n; }
+  .setup li { font-size: 14px; color: var(--muted); padding-left: 30px; position: relative; }
+  .setup li::before { counter-increment: n; content: counter(n); position: absolute; left: 0; top: 0; width: 21px; height: 21px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 11px; font-weight: 700; display: grid; place-items: center; }
+  .setup b { color: var(--ink); font-weight: 600; }
+  .costs { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 4px; }
+  .costs td { padding: 8px 0; border-bottom: 1px solid var(--line); color: var(--muted); }
+  .costs td:last-child { text-align: right; font-variant-numeric: tabular-nums; color: var(--ink); font-weight: 600; white-space: nowrap; }
   footer { text-align: center; font-size: 13px; color: var(--faint); padding: 2px 14px 18px; }
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
@@ -105,6 +125,17 @@
       <li>Вся обвязка — на резьбу <b>1 дюйм</b>. Если у колонны окажется 3/4, краны и фитинги можно вернуть.</li>
       <li>Колонне нужно место: <b>высота 160 см</b> вместе с клапаном, рядом солевой бак и <b>розетка 220 В</b> — клапан работает от сети.</li>
     </ul>
+  </div>
+
+  <div class="pre">
+    <h2>Проверьте до заказа — пять минут</h2>
+    <ol>
+      <li><b>Давление на входе — не меньше 2,5 бар.</b> Система съедает около 1,1 бар: фильтр, колонна и картридж вместе. Посмотрите манометр у гидроаккумулятора: если там 2 бар и ниже, напора в душе после установки не будет — сначала поднимите настройку реле насоса.</li>
+      <li><b>Место под колонну:</b> высота <b>160 см</b> вместе с клапаном, рядом солевой бак — это ещё круг диаметром 40 см. Плюс подход, чтобы досыпать соль.</li>
+      <li><b>Розетка 220 В</b> в пределах полутора метров — клапан электронный, работает от сети постоянно.</li>
+      <li><b>В помещении всегда плюс.</b> Колонна с водой не должна замерзать.</li>
+      <li><b>Померьте расстояние от колонны до сливной ямы</b> — от него зависит, хватит ли шланга из комплекта.</li>
+    </ol>
   </div>
 
   <section>
@@ -309,7 +340,7 @@
         <label class="check"><input type="checkbox" data-price="500"><span class="box"></span></label>
         <div>
           <p class="name">Тест-полоски на жёсткость<span class="qty">1 набор</span></p>
-          <p class="must">Чтобы раз в месяц проверять, что система работает. Если жёсткость на выходе поползла вверх — загрузка выработалась или регенерация не отрабатывает. Ищите <b>тест-полоски на жёсткость воды</b>, набор 50 штук.</p>
+          <p class="must">Чтобы раз в месяц проверять, что система работает. Если жёсткость на выходе поползла вверх — загрузка выработалась или регенерация не отрабатывает. Мерить нужно <b>на выходе из системы</b>, а не на входе — на входе вода зашкалит за шкалу. Ищите набор 50 штук.</p>
           <div class="row">
             <a class="btn" href="https://www.ozon.ru/search/?text=%D1%82%D0%B5%D1%81%D1%82-%D0%BF%D0%BE%D0%BB%D0%BE%D1%81%D0%BA%D0%B8%20%D0%B6%D1%91%D1%81%D1%82%D0%BA%D0%BE%D1%81%D1%82%D1%8C%20%D0%B2%D0%BE%D0%B4%D1%8B" target="_blank" rel="noopener">Найти<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h7v7M13 3L4 12"/></svg></a>
             <span class="price">300 – 700 ₽</span>
@@ -318,6 +349,38 @@
       </li>
     </ul>
   </section>
+
+  <div class="after">
+    <h2>Что дальше — памятка на монтаж</h2>
+    <p class="sub">Эта часть для Юрия и монтажника. Юле при заказе она не нужна.</p>
+
+    <h3>Порядок в трубе</h3>
+    <div class="chain">
+      <span>Скважина</span><i>→</i><span>Фильтр 100 мкм</span><i>→</i><span>Колонна</span><i>→</i><span>Фильтр 10BB</span><i>→</i><span>Дом</span>
+    </div>
+    <p class="sub" style="margin-bottom:0">Колонна ставится в обход из двух тройников и крана: закрыли два крана, открыли обводной — вода идёт мимо, колонну можно снять не останавливая дом. Осмос врезается отдельно, под кухонной мойкой.</p>
+
+    <h3>Пять настроек, без которых система работает хуже</h3>
+    <ol class="setup">
+      <li><b>Регенерация по счётчику воды, а не по таймеру.</b> Иначе колонна будет промываться по расписанию вхолостую — лишняя соль, лишняя вода в яму, лишний износ.</li>
+      <li><b>Время регенерации — 2–3 часа ночи.</b> В этот момент вода в доме идёт в обход, неумягчённая. Ночью это никому не мешает.</li>
+      <li><b>Смешение на выходе — 3,5–4 °Ж, не в ноль.</b> Накипь уходит втрое, натрий остаётся в норме, вода не становится агрессивной к трубам.</li>
+      <li><b>Слив в яму через разрыв струи</b> — воздушный зазор между шлангом и канализацией. При засоре стоки не уйдут обратно в фильтр.</li>
+      <li><b>Кварц засыпается строго до загрузки</b>, а трубку дистрибьютора на время засыпки заклеивают скотчем — иначе кварц попадёт внутрь и забьёт клапан. После сборки — промывка и одна холостая регенерация до подачи воды в дом.</li>
+    </ol>
+
+    <h3>Сколько будет стоить содержание</h3>
+    <table class="costs">
+      <tr><td>Соль — регенерация раз в 5 дней, 4–5 кг за раз</td><td>1 200 – 1 700 ₽ / мес</td></tr>
+      <tr><td>Картриджи осмоса</td><td>≈ 4 500 ₽ / год</td></tr>
+      <tr><td>Картридж 10BB</td><td>≈ 500 ₽ / полгода</td></tr>
+      <tr><td>Замена загрузки</td><td>раз в 5–8 лет</td></tr>
+      <tr><td>Дополнительно в сливную яму</td><td>+1,3 м³ / мес</td></tr>
+    </table>
+
+    <h3>Через месяц после запуска</h3>
+    <p class="sub" style="margin-bottom:0">Сдать в лабораторию <b>один показатель — марганец</b> (около 1 400 ₽). Это подтвердит, что загрузка действительно его снимает, а не только жёсткость. Заодно проверить жёсткость тест-полосками: на выходе должно быть 3,5–4 °Ж.</p>
+  </div>
 
   <footer>Снимки карточек сделаны 1 сентября 2026 года — цены на Озоне с тех пор могли измениться</footer>
 </div>
