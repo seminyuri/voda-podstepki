@@ -45,10 +45,12 @@
   .group-sum { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
 
   ul.items { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
-  .item { display: grid; grid-template-columns: auto 106px 1fr; gap: 12px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 12px; box-shadow: var(--shadow); transition: opacity .18s ease; }
+  .item { display: grid; grid-template-columns: auto 124px minmax(0,1fr); gap: 12px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 12px; box-shadow: var(--shadow); transition: opacity .18s ease; }
   .item.done { opacity: .45; }
   .item.done .name { text-decoration: line-through; text-decoration-color: var(--faint); }
-  @media (max-width: 420px) { .item { grid-template-columns: auto 84px 1fr; gap: 10px; } }
+  @media (max-width: 400px) { .item { grid-template-columns: auto 104px minmax(0,1fr); gap: 9px; padding: 10px; } }
+  .item > div { min-width: 0; }
+  .name, .must { overflow-wrap: anywhere; }
 
   .check { display: flex; align-items: flex-start; padding-top: 2px; cursor: pointer; }
   .check input { position: absolute; opacity: 0; width: 0; height: 0; }
@@ -58,6 +60,7 @@
   .check input:checked + .box::after { opacity: 1; transform: rotate(-45deg) scale(1); }
   .check input:focus-visible + .box { outline: 2px solid var(--accent); outline-offset: 2px; }
 
+  .shotlink { display: block; }
   .shot { display: block; width: 100%; border: 1px solid var(--line); border-radius: 7px; background: #fff; }
 
   .name { font-size: 15.5px; font-weight: 600; margin: 0 0 6px; letter-spacing: -.01em; line-height: 1.3; }
@@ -108,7 +111,7 @@
 
       <li class="item">
         <label class="check"><input type="checkbox" data-price="13513"><span class="box"></span></label>
-        <img class="shot" src="img/01-kolonna.jpg" alt="Карточка: автоматический фильтр RunXin 1054">
+        <a class="shotlink" href="img/01-kolonna.jpg" target="_blank" rel="noopener"><img class="shot" src="img/01-kolonna.jpg" alt="Карточка: автоматический фильтр RunXin 1054" loading="lazy"></a>
         <div>
           <p class="name">Колонна умягчителя<span class="qty">1 шт</span></p>
           <p class="must">Обязательно: размер <b>1054</b>, клапан <b>автоматический</b> (не ручной), в комплекте <b>солевой бак</b>. Подходят RunXin, Гейзер, Frotec.</p>
@@ -121,7 +124,7 @@
 
       <li class="item">
         <label class="check"><input type="checkbox" data-price="25500"><span class="box"></span></label>
-        <img class="shot" src="img/02-zagruzka.jpg" alt="Карточка: ионообменная смола Waterlux A">
+        <a class="shotlink" href="img/02-zagruzka.jpg" target="_blank" rel="noopener"><img class="shot" src="img/02-zagruzka.jpg" alt="Карточка: ионообменная смола Waterlux A" loading="lazy"></a>
         <div>
           <p class="name">Загрузка Waterlux A<span class="qty">45–50 л</span></p>
           <p class="must">Комплексная загрузка от жёсткости и <b>марганца</b>. Фасовки бывают 12 и 25 л — берите так, чтобы вышло <b>45–50 литров</b> (два мешка по 25 или четыре по 12).</p>
@@ -134,7 +137,7 @@
 
       <li class="item">
         <label class="check"><input type="checkbox" data-price="1000"><span class="box"></span></label>
-        <img class="shot" src="img/03-kvarc.jpg" alt="Карточка: кварцевый песок гравий фракция 2-5 мм">
+        <a class="shotlink" href="img/03-kvarc.jpg" target="_blank" rel="noopener"><img class="shot" src="img/03-kvarc.jpg" alt="Карточка: кварцевый песок гравий фракция 2-5 мм" loading="lazy"></a>
         <div>
           <p class="name">Кварц-подложка<span class="qty">10 кг</span></p>
           <p class="must">Обязательно фракция <b>2–5 мм</b>. Засыпается на дно колонны под загрузку.</p>
@@ -147,7 +150,7 @@
 
       <li class="item">
         <label class="check"><input type="checkbox" data-price="2000"><span class="box"></span></label>
-        <img class="shot" src="img/04-mehfiltr.jpg" alt="Карточка: самопромывной фильтр предварительной очистки">
+        <a class="shotlink" href="img/04-mehfiltr.jpg" target="_blank" rel="noopener"><img class="shot" src="img/04-mehfiltr.jpg" alt="Карточка: самопромывной фильтр предварительной очистки" loading="lazy"></a>
         <div>
           <p class="name">Фильтр грубой очистки<span class="qty">1 шт</span></p>
           <p class="must">Обязательно: <b>самопромывной</b>, резьба <b>1 дюйм</b>, сетка <b>100 мкм</b>, корпус латунный. Не путать со сменными сетками по 150–400 ₽ — нам нужен фильтр целиком.</p>
@@ -160,7 +163,7 @@
 
       <li class="item">
         <label class="check"><input type="checkbox" data-price="3100"><span class="box"></span></label>
-        <img class="shot" src="img/05-korpus.jpg" alt="Карточка: корпус магистрального фильтра 10BB">
+        <a class="shotlink" href="img/05-korpus.jpg" target="_blank" rel="noopener"><img class="shot" src="img/05-korpus.jpg" alt="Карточка: корпус магистрального фильтра 10BB" loading="lazy"></a>
         <div>
           <p class="name">Корпус фильтра 10BB<span class="qty">1 шт</span></p>
           <p class="must">Типоразмер <b>10BB</b> (он же Big Blue, Джамбо), для <b>холодной</b> воды, вход <b>1 дюйм</b>. Ставится после колонны.</p>
@@ -173,7 +176,7 @@
 
       <li class="item">
         <label class="check"><input type="checkbox" data-price="500"><span class="box"></span></label>
-        <img class="shot" src="img/06-kartridzh.jpg" alt="Карточка: картридж полипропиленовый 10BB 5 мкм">
+        <a class="shotlink" href="img/06-kartridzh.jpg" target="_blank" rel="noopener"><img class="shot" src="img/06-kartridzh.jpg" alt="Карточка: картридж полипропиленовый 10BB 5 мкм" loading="lazy"></a>
         <div>
           <p class="name">Картридж к корпусу<span class="qty">1 шт</span></p>
           <p class="must">Полипропиленовый, типоразмер <b>10BB</b> (не 10SL — он тоньше и не влезет), тонкость <b>5 мкм</b>.</p>
@@ -186,7 +189,7 @@
 
       <li class="item">
         <label class="check"><input type="checkbox" data-price="2800"><span class="box"></span></label>
-        <img class="shot" src="img/07-sol.jpg" alt="Карточка: соль таблетированная 25 кг">
+        <a class="shotlink" href="img/07-sol.jpg" target="_blank" rel="noopener"><img class="shot" src="img/07-sol.jpg" alt="Карточка: соль таблетированная 25 кг" loading="lazy"></a>
         <div>
           <p class="name">Соль таблетированная<span class="qty">2 мешка</span></p>
           <p class="must">Именно <b>для водоочистки</b> (не для посудомоечной машины), мешок <b>25 кг</b>. Марка любая: Rockmelt, Тульская, Мозырьсоль — состав одинаковый.</p>
@@ -205,7 +208,7 @@
     <ul class="items">
       <li class="item">
         <label class="check"><input type="checkbox" data-price="13446"><span class="box"></span></label>
-        <img class="shot" src="img/08-osmos.jpg" alt="Карточка: Аквафор Морион DWM-101SN">
+        <a class="shotlink" href="img/08-osmos.jpg" target="_blank" rel="noopener"><img class="shot" src="img/08-osmos.jpg" alt="Карточка: Аквафор Морион DWM-101SN" loading="lazy"></a>
         <div>
           <p class="name">Фильтр обратного осмоса<span class="qty">1 шт</span></p>
           <p class="must">Аквафор Морион <b>DWM-101SN</b> — строго с буквой <b>N</b> на конце: эта версия возвращает в воду кальций и магний. Без N дешевле, но вода будет пустая.</p>
@@ -224,7 +227,7 @@
 
       <li class="item">
         <label class="check"><input type="checkbox" data-price="1400"><span class="box"></span></label>
-        <img class="shot" src="img/09-kran.jpg" alt="Карточка: кран шаровой 1 дюйм латунь">
+        <a class="shotlink" href="img/09-kran.jpg" target="_blank" rel="noopener"><img class="shot" src="img/09-kran.jpg" alt="Карточка: кран шаровой 1 дюйм латунь" loading="lazy"></a>
         <div>
           <p class="name">Кран шаровой<span class="qty">3 шт</span></p>
           <p class="must">Резьба <b>1 дюйм</b>, корпус <b>латунь</b>. Три штуки: на вход, на выход и на обвод.</p>
@@ -237,7 +240,7 @@
 
       <li class="item">
         <label class="check"><input type="checkbox" data-price="1476"><span class="box"></span></label>
-        <img class="shot" src="img/10-amerikanka.jpg" alt="Карточка: американка 1 дюйм латунь">
+        <a class="shotlink" href="img/10-amerikanka.jpg" target="_blank" rel="noopener"><img class="shot" src="img/10-amerikanka.jpg" alt="Карточка: американка 1 дюйм латунь" loading="lazy"></a>
         <div>
           <p class="name">Американка<span class="qty">4 шт</span></p>
           <p class="must">Разъёмное соединение, резьба <b>1 дюйм</b>, латунь. Нужны, чтобы снять колонну не разрезая трубы.</p>
@@ -250,7 +253,7 @@
 
       <li class="item">
         <label class="check"><input type="checkbox" data-price="800"><span class="box"></span></label>
-        <img class="shot" src="img/11-troynik.jpg" alt="Карточка: тройник 1 дюйм латунь">
+        <a class="shotlink" href="img/11-troynik.jpg" target="_blank" rel="noopener"><img class="shot" src="img/11-troynik.jpg" alt="Карточка: тройник 1 дюйм латунь" loading="lazy"></a>
         <div>
           <p class="name">Тройник<span class="qty">2 шт</span></p>
           <p class="must">Равнопроходной <b>1×1×1 дюйм</b>, внутренняя резьба, латунь. Не переходной — все три выхода одного размера.</p>
@@ -263,7 +266,7 @@
 
       <li class="item">
         <label class="check"><input type="checkbox" data-price="152"><span class="box"></span></label>
-        <img class="shot" src="img/12-len.jpg" alt="Карточка: паста и лён Unipak">
+        <a class="shotlink" href="img/12-len.jpg" target="_blank" rel="noopener"><img class="shot" src="img/12-len.jpg" alt="Карточка: паста и лён Unipak" loading="lazy"></a>
         <div>
           <p class="name">Лён и паста<span class="qty">1 набор</span></p>
           <p class="must">Комплект <b>Unipak</b>: паста 25 г + лён 13 г. Для уплотнения резьбы, безопасна для питьевой воды.</p>
@@ -276,7 +279,7 @@
 
       <li class="item">
         <label class="check"><input type="checkbox" data-price="200"><span class="box"></span></label>
-        <img class="shot" src="img/13-homut.jpg" alt="Карточка: хомуты червячные 16-27 мм">
+        <a class="shotlink" href="img/13-homut.jpg" target="_blank" rel="noopener"><img class="shot" src="img/13-homut.jpg" alt="Карточка: хомуты червячные 16-27 мм" loading="lazy"></a>
         <div>
           <p class="name">Хомуты червячные<span class="qty">1 уп</span></p>
           <p class="must">Размер <b>16–27 мм</b>, нержавейка, упаковка 5–10 штук. Для крепления сливного шланга.</p>
