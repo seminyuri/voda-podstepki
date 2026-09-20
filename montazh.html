@@ -109,6 +109,18 @@
   footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--line);
     font-size:13px;color:var(--faint);text-align:center}
 
+  @media (max-width:520px){
+    .wrap{padding:20px 12px 50px}
+    table{font-size:13px}
+    td{padding:8px 7px}
+    th{padding:8px 7px;font-size:11px}
+    .field{min-width:70px}
+    .card,.warn,.ok,.note{padding:13px}
+    h1{font-size:23px}
+    .eyebrow{letter-spacing:.1em;font-size:10.5px}
+    ol.steps>li{padding-left:34px}
+    ol.steps>li::before{width:24px;height:24px;font-size:12px}
+  }
   @media print{
     body{font-size:10.5pt;background:#fff;color:#000}
     .wrap{max-width:100%;padding:0}
@@ -178,7 +190,7 @@
 <div class="warn">
   <div class="t">Сначала посмотрите трубу, потом езжайте в магазин</div>
   Магистраль в котельной может быть из ПНД (чёрная с синей полосой), полипропилена (белая, спаяна утюгом) или металлопласта (серая гофрированная). От этого зависит половина списка. Сфотографируйте место врезки и замерьте наружный диаметр трубы штангенциркулем или рулеткой.
-  <p style="margin:9px 0 0">Труба: <span class="field" style="min-width:150px"></span> &nbsp; Диаметр, мм: <span class="field"></span></p>
+  <p style="margin:9px 0 0">Труба: <span class="field" style="min-width:120px"></span><br style="line-height:2.2">Диаметр, мм: <span class="field"></span></p>
 </div>
 
 <h3>Обязательно — переходники на резьбу 1″</h3>
