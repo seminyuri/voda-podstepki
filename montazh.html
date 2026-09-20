@@ -63,7 +63,13 @@
   td.n{width:30px;text-align:center;color:var(--faint);font-variant-numeric:tabular-nums}
   td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
   tr:last-child td{border-bottom:none}
-  .tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .tw{overflow-x:auto;-webkit-overflow-scrolling:touch;position:relative;
+    background:linear-gradient(to right,var(--bg) 30%,rgba(0,0,0,0)),
+               linear-gradient(to left,var(--bg) 30%,rgba(0,0,0,0)) 100% 0,
+               radial-gradient(farthest-side at 0 50%,rgba(0,0,0,.14),transparent),
+               radial-gradient(farthest-side at 100% 50%,rgba(0,0,0,.14),transparent) 100% 0;
+    background-repeat:no-repeat;background-size:36px 100%,36px 100%,14px 100%,14px 100%;
+    background-attachment:local,local,scroll,scroll}
   .val{font-variant-numeric:tabular-nums;font-weight:650;color:var(--acc);white-space:nowrap}
 
   /* поле для записи замера */
@@ -131,11 +137,16 @@
   <h3 style="margin:0 0 4px;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:var(--acc)">Ключевые числа — сфотографируйте</h3>
   <div class="tw"><table style="margin:8px 0 0">
     <tbody>
-      <tr><td>Загрузка Waterlux A</td><td class="num val">37 л</td><td>Кварц-подложка</td><td class="num val">10 кг</td></tr>
-      <tr><td>Реле давления, включение</td><td class="num val">3,5 бар</td><td>Реле, выключение</td><td class="num val">5,0 бар</td></tr>
-      <tr><td>Воздух в гидроаккумуляторе</td><td class="num val">3,3 бар</td><td>Насос, расход</td><td class="num val">≥10 л/мин</td></tr>
-      <tr><td>Регенерация по объёму</td><td class="num val">2,7 м³</td><td>Старт регенерации</td><td class="num val">02:00</td></tr>
-      <tr><td>Доза соли на цикл</td><td class="num val">7,4 кг</td><td>Жёсткость на выходе</td><td class="num val">3,5–4 °Ж</td></tr>
+      <tr><td>Загрузка Waterlux A</td><td class="num val">37 л</td></tr>
+      <tr><td>Кварц-подложка</td><td class="num val">10 кг</td></tr>
+      <tr><td>Реле давления, включение</td><td class="num val">3,5 бар</td></tr>
+      <tr><td>Реле давления, выключение</td><td class="num val">5,0 бар</td></tr>
+      <tr><td>Воздух в гидроаккумуляторе</td><td class="num val">3,3 бар</td></tr>
+      <tr><td>Производительность насоса</td><td class="num val">≥ 10 л/мин</td></tr>
+      <tr><td>Регенерация по объёму</td><td class="num val">2,7 м³</td></tr>
+      <tr><td>Старт регенерации</td><td class="num val">02:00</td></tr>
+      <tr><td>Доза соли на цикл</td><td class="num val">7,4 кг</td></tr>
+      <tr><td>Жёсткость на выходе</td><td class="num val">3,5–4 °Ж</td></tr>
     </tbody>
   </table></div>
 </div>
