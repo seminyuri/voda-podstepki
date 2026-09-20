@@ -22,8 +22,7 @@
     font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
   .wrap{max-width:860px;margin:0 auto;padding:26px 16px 60px}
 
-  /* шапка */
-  header{border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:26px}
+  header{border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px}
   .eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--acc);font-weight:700;margin-bottom:8px}
   h1{font-size:clamp(24px,5vw,34px);line-height:1.15;margin:0 0 10px;font-weight:700;letter-spacing:-.02em}
   .meta{display:flex;flex-wrap:wrap;gap:6px 22px;font-size:14px;color:var(--mut)}
@@ -33,11 +32,10 @@
   h2 .num{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:7px;
     background:var(--ink);color:var(--bg);font-size:14px;margin-right:9px;vertical-align:2px}
   .h2sub{font-size:14px;color:var(--mut);margin:0 0 16px 37px}
-  h3{font-size:15px;margin:22px 0 9px;font-weight:650;letter-spacing:.01em}
+  h3{font-size:15px;margin:22px 0 9px;font-weight:650}
   p{margin:0 0 11px}
   b{font-weight:650}
 
-  /* оглавление */
   nav.toc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:28px}
   nav.toc div{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);font-weight:700;margin-bottom:9px}
   nav.toc ol{margin:0;padding-left:20px;columns:2;column-gap:26px;font-size:14.5px}
@@ -46,44 +44,26 @@
   nav.toc a:hover{text-decoration:underline}
   @media(max-width:560px){nav.toc ol{columns:1}}
 
-  /* блоки */
   .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;margin:14px 0}
   .warn{background:var(--warn-bg);border:1px solid var(--warn);border-left-width:4px;border-radius:8px;padding:14px 16px;margin:16px 0}
-  .warn .t{font-weight:700;color:var(--warn);font-size:14px;margin-bottom:6px;letter-spacing:.01em}
+  .warn .t{font-weight:700;color:var(--warn);font-size:14px;margin-bottom:6px}
   .ok{background:var(--ok-bg);border:1px solid var(--ok);border-left-width:4px;border-radius:8px;padding:14px 16px;margin:16px 0}
   .ok .t{font-weight:700;color:var(--ok);font-size:14px;margin-bottom:6px}
   .note{background:var(--acc-bg);border-left:4px solid var(--acc);border-radius:8px;padding:13px 16px;margin:16px 0;font-size:14.5px}
 
-  /* таблицы */
   table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14.5px}
   th{background:var(--fill);text-align:left;padding:9px 10px;font-size:12px;letter-spacing:.06em;
      text-transform:uppercase;font-weight:700;border-bottom:2px solid var(--line);color:var(--mut)}
   td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
-  table.tight td,table.tight th{padding:8px 7px;font-size:14px}
   td.n{width:30px;text-align:center;color:var(--faint);font-variant-numeric:tabular-nums}
   td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
   tr:last-child td{border-bottom:none}
-  .tw{overflow-x:auto;-webkit-overflow-scrolling:touch;position:relative;
-    background:linear-gradient(to right,var(--bg) 30%,rgba(0,0,0,0)),
-               linear-gradient(to left,var(--bg) 30%,rgba(0,0,0,0)) 100% 0,
-               radial-gradient(farthest-side at 0 50%,rgba(0,0,0,.14),transparent),
-               radial-gradient(farthest-side at 100% 50%,rgba(0,0,0,.14),transparent) 100% 0;
-    background-repeat:no-repeat;background-size:36px 100%,36px 100%,14px 100%,14px 100%;
-    background-attachment:local,local,scroll,scroll}
+  .tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
   .val{font-variant-numeric:tabular-nums;font-weight:650;color:var(--acc);white-space:nowrap}
 
-  /* поле для записи замера */
-  .field{display:inline-block;min-width:96px;border-bottom:1.5px solid var(--acc);height:21px;margin:0 4px}
-  .bigfield{border:1px dashed var(--acc);border-radius:6px;min-height:34px;background:var(--card);min-width:66px}
+  .field{display:inline-block;min-width:88px;border-bottom:1.5px solid var(--acc);height:21px;margin:0 4px}
+  .bigfield{border:1px dashed var(--acc);border-radius:6px;min-height:34px;min-width:66px;background:var(--card)}
 
-  /* чек-лист */
-  ul.check{list-style:none;margin:10px 0;padding:0;display:flex;flex-direction:column;gap:10px}
-  ul.check li{position:relative;padding-left:32px;font-size:15px}
-  ul.check li::before{content:"";position:absolute;left:0;top:1px;width:20px;height:20px;
-    border:2px solid var(--line);border-radius:5px;background:var(--bg)}
-  ul.check b{color:var(--ink)}
-
-  /* нумерованные шаги */
   ol.steps{list-style:none;margin:0;padding:0;counter-reset:s;display:flex;flex-direction:column;gap:16px}
   ol.steps>li{position:relative;padding-left:40px}
   ol.steps>li::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:-1px;
@@ -94,7 +74,12 @@
   ol.steps ul li{margin-bottom:5px}
   ol.steps ul b{color:var(--ink)}
 
-  /* схема */
+  .plan{list-style:none;margin:0;padding:0;counter-reset:p;display:flex;flex-direction:column;gap:9px}
+  .plan li{position:relative;padding-left:32px;font-size:14.5px}
+  .plan li::before{counter-increment:p;content:counter(p);position:absolute;left:0;top:1px;
+    width:22px;height:22px;border-radius:6px;background:var(--ok);color:#fff;font-size:12px;font-weight:700;display:grid;place-items:center}
+  .plan b{color:var(--ink)}
+
   .scheme{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;margin:14px 0;overflow-x:auto}
   .chain{display:flex;align-items:center;gap:7px;flex-wrap:wrap;font-size:13.5px;margin-bottom:10px}
   .chain .b{background:var(--acc-bg);color:var(--ink);border:1px solid var(--acc);
@@ -103,21 +88,13 @@
   .chain i{color:var(--faint);font-style:normal;font-weight:700}
   .leg{font-size:13.5px;color:var(--mut);margin:0}
 
-  code{background:var(--fill);padding:1px 6px;border-radius:4px;font-size:13.5px;
-    font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
-
-  footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--line);
-    font-size:13px;color:var(--faint);text-align:center}
+  footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);text-align:center}
 
   @media (max-width:520px){
     .wrap{padding:20px 12px 50px}
-    table{font-size:13px}
-    td{padding:8px 7px}
-    th{padding:8px 7px;font-size:11px}
-    .field{min-width:70px}
-    .card,.warn,.ok,.note{padding:13px}
-    h1{font-size:23px}
-    .eyebrow{letter-spacing:.1em;font-size:10.5px}
+    table{font-size:13px} td{padding:8px 7px} th{padding:8px 7px;font-size:11px}
+    .field{min-width:70px} .card,.warn,.ok,.note{padding:13px}
+    h1{font-size:23px} .eyebrow{letter-spacing:.1em;font-size:10.5px}
     ol.steps>li{padding-left:34px}
     ol.steps>li::before{width:24px;height:24px;font-size:12px}
   }
@@ -136,12 +113,12 @@
 <div class="wrap">
 
 <header>
-  <div class="eyebrow">Инструкция по монтажу · система водоподготовки</div>
+  <div class="eyebrow">План монтажа · система водоподготовки</div>
   <h1>Частный дом, скважина.<br>Умягчение, марганец, питьевая вода</h1>
   <div class="meta">
-    <span><b>Адрес:</b> с. Подстёпки, ул. Михаила Зюзина, 7</span>
-    <span><b>Заказчик:</b> Сёмин Юрий Михайлович, +7 927 817-93-09</span>
-    <span><b>Документ от:</b> 20 сентября 2026, обновлён по итогам обследования объекта</span>
+    <span><b>Объект:</b> с. Подстёпки, ул. Михаила Зюзина, 7</span>
+    <span><b>Телефон:</b> +7 927 817-93-09</span>
+    <span><b>Дата:</b> 20 сентября 2026</span>
   </div>
 </header>
 
@@ -151,8 +128,8 @@
     <tbody>
       <tr><td>Загрузка Waterlux A</td><td class="num val">37 л</td></tr>
       <tr><td>Кварц-подложка</td><td class="num val">10 кг</td></tr>
-      <tr><td>Реле PM5 — включение, оставить</td><td class="num val">3,2 бар</td></tr>
-      <tr><td>Реле PM5 — выключение, поднять</td><td class="num val">4,8 бар</td></tr>
+      <tr><td>Реле PM5 — включение, <b>оставить</b></td><td class="num val">3,2 бар</td></tr>
+      <tr><td>Реле PM5 — выключение, <b>поднять</b></td><td class="num val">4,5 бар</td></tr>
       <tr><td>Воздух в баке Wester WAO-50</td><td class="num val">3,0 бар</td></tr>
       <tr><td>Регенерация по объёму</td><td class="num val">2,7 м³</td></tr>
       <tr><td>Старт регенерации (у соседа — 04:00)</td><td class="num val">02:00</td></tr>
@@ -164,13 +141,13 @@
 
 <div class="card" style="border-left:4px solid var(--ok)">
   <h3 style="margin:0 0 10px">Порядок работ на день</h3>
-  <ol style="margin:0;padding-left:19px;display:flex;flex-direction:column;gap:8px;font-size:14.5px">
-    <li><b>Магазин.</b> Муфты ППР × 1″ (4 шт), паяльник, труба ППР, ниппели, угольники, муфты латунь, ФУМ, клипсы, скотч малярный, воронка, ведро 10 л, силиконовая смазка, стяжки. Список — раздел 1.</li>
-    <li><b>Кессон.</b> Обесточить насос, слить воду, замерить и выставить воздух в баке 3,0 бар, поднять верхний порог реле до 4,8. Раздел 6.</li>
-    <li><b>Колонна.</b> Собрать и засыпать: кварц, потом загрузка, трубка заклеена скотчем. Раздел 7.</li>
-    <li><b>Врезка.</b> Сетчатый фильтр перед БАРЬЕРОМ, колонна с обводом после него. Разделы 8 и 9.</li>
-    <li><b>Настройка клапана</b> и первый запуск с промывкой. Разделы 10 и 11.</li>
-    <li><b>Осмос</b> под мойку — последним, когда магистраль промыта. Раздел 12.</li>
+  <ol class="plan">
+    <li><b>Магазин.</b> Муфты ППР, паяльник, труба, латунные фитинги и мелочёвка — раздел 1.</li>
+    <li><b>Кессон.</b> Обесточить насос, выставить воздух в баке 3,0 бар, поднять верхний порог реле до 4,5 — раздел 6.</li>
+    <li><b>Колонна.</b> Собрать и засыпать: кварц, потом загрузка, трубка заклеена скотчем — раздел 7.</li>
+    <li><b>Врезка.</b> Сетчатый фильтр, тройники, обвязка, слив и солевой бак — разделы 8 и 9.</li>
+    <li><b>Клапан.</b> Запрограммировать и запустить с промывкой — разделы 10 и 11.</li>
+    <li><b>Осмос</b> под мойку — последним, когда магистраль промыта, раздел 12.</li>
   </ol>
   <p style="margin:11px 0 0;font-size:14px;color:var(--mut)">На всё — день с запасом. Самое долгое: пайка обвязки и часовая промывка колонны в конце.</p>
 </div>
@@ -178,184 +155,185 @@
 <nav class="toc">
   <div>Содержание</div>
   <ol>
-    <li><a href="#buy">Купить по месту</a></li>
-    <li><a href="#have">Что уже привезено</a></li>
-    <li><a href="#water">Какая вода и что с ней делаем</a></li>
-    <li><a href="#measure">Замеры — что уже известно</a></li>
+    <li><a href="#buy">Что купить в магазине</a></li>
+    <li><a href="#have">Что привезено — проверить коробки</a></li>
+    <li><a href="#water">Вода: что в ней и что делаем</a></li>
+    <li><a href="#known">Что уже известно об объекте</a></li>
     <li><a href="#scheme">Схема подключения</a></li>
-    <li><a href="#pressure">Настройка реле PM5</a></li>
+    <li><a href="#pressure">Кессон: воздух в баке и реле PM5</a></li>
     <li><a href="#column">Сборка и засыпка колонны</a></li>
     <li><a href="#pipe">Врезка в магистраль</a></li>
     <li><a href="#drain">Слив в яму и солевой бак</a></li>
     <li><a href="#valve">Программирование клапана</a></li>
     <li><a href="#start">Первый запуск и промывка</a></li>
     <li><a href="#osmos">Питьевой фильтр под мойку</a></li>
-    <li><a href="#accept">Проверка и сдача</a></li>
+    <li><a href="#check">Проверка после запуска</a></li>
+    <li><a href="#life">Эксплуатация и расходы</a></li>
     <li><a href="#never">Чего делать нельзя</a></li>
   </ol>
 </nav>
 
-<!-- 1 -->
-<h2 id="buy"><span class="num">1</span>Купить по месту</h2>
-<p class="h2sub">Оборудование всё привезено. В магазине нужна только расходная сантехника — её нельзя было купить заранее, пока не стало понятно, какая труба в котельной.</p>
+<h2 id="buy"><span class="num">1</span>Что купить в магазине</h2>
+<p class="h2sub">Оборудование всё привезено. В магазине — только расходная сантехника: её нельзя было взять заранее, пока не стало понятно, какая труба в котельной.</p>
 
 <div class="ok">
-  <div class="t">Обследование объекта уже проведено — гадать не нужно</div>
-  Труба в котельной — <b>полипропилен VALTEC</b>, паяная. Ввод со скважины идёт чёрной ПНД-трубой и переходит на полипропилен через латунную американку, там же стоит отсекающий кран с красной ручкой. Манометр на вводе уже есть, покупать не надо.
-  <p style="margin:9px 0 0">Диаметр трубы уточнить на месте — 25 или 32 мм: <span class="field" style="min-width:110px"></span></p>
+  <div class="t">Объект обследован, гадать не нужно</div>
+  Труба в котельной — <b>полипропилен VALTEC</b>, паяная. Ввод со скважины идёт чёрной ПНД-трубой и переходит на полипропилен через латунную американку, там же отсекающий кран с красной ручкой. Манометр на вводе уже стоит.
+  <p style="margin:9px 0 0">Единственное, что надо уточнить на месте, — диаметр трубы, 25 или 32 мм: <span class="field" style="min-width:110px"></span></p>
 </div>
 
-<h3>Обязательно — переходники на резьбу 1″</h3>
-<p>Оборудование идёт с резьбой <b>1 дюйм</b>, труба в доме — полипропилен. Нужно четыре точки стыковки: вход и выход колонны, вход и выход фильтра.</p>
+<h3>Переходники на резьбу 1″ — четыре точки стыковки</h3>
 <div class="tw"><table>
   <thead><tr><th>Позиция</th><th>Уточнение</th><th class="num">Кол-во</th></tr></thead>
   <tbody>
-    <tr><td><b>Муфта ППР × 1″ наружная резьба</b>, под пайку</td><td>Диаметр по факту: 25 или 32 мм — посмотреть на трубе</td><td class="num">4 шт</td></tr>
-    <tr><td><b>Паяльник для полипропилена</b> с насадками 25 и 32</td><td>Без него врезаться не получится. Если своего нет — прокат или у соседей</td><td class="num">1 шт</td></tr>
-    <tr><td><b>Труба ППР</b> того же диаметра</td><td>На обвязку от врезки до оборудования</td><td class="num">4–5 м</td></tr>
+    <tr><td><b>Муфта ППР × 1″ наружная резьба</b>, под пайку</td><td>Диаметр по факту трубы: 25 или 32 мм</td><td class="num">4 шт</td></tr>
+    <tr><td><b>Паяльник для полипропилена</b></td><td>С насадками под ваш диаметр. Свой, в прокат или у соседей</td><td class="num">1 шт</td></tr>
+    <tr><td><b>Труба ППР</b> того же диаметра</td><td>Обвязка от врезки до оборудования</td><td class="num">4–5 м</td></tr>
   </tbody>
 </table></div>
 
-<h3>Обязательно — независимо от типа трубы</h3>
+<h3>Латунная обвязка и мелочёвка</h3>
 <div class="tw"><table>
   <thead><tr><th class="n">№</th><th>Позиция</th><th>Зачем</th><th class="num">Кол-во</th></tr></thead>
   <tbody>
     <tr><td class="n">1</td><td><b>Ниппель (бочонок) 1″ НР-НР латунь</b></td><td>Соединить краны с тройниками и фитингами</td><td class="num">6 шт</td></tr>
-    <tr><td class="n">2</td><td><b>Угольник 1″ ВР-ВР латунь</b></td><td>Повороты обвязки, обход колонны</td><td class="num">4 шт</td></tr>
+    <tr><td class="n">2</td><td><b>Угольник 1″ ВР-ВР латунь</b></td><td>Повороты обвязки, обвод колонны</td><td class="num">4 шт</td></tr>
     <tr><td class="n">3</td><td><b>Муфта 1″ ВР-ВР латунь</b></td><td>Наращивание, стыковка</td><td class="num">3 шт</td></tr>
-    <tr><td class="n">4</td><td><b>ФУМ-лента</b>, широкая</td><td>Где лён неудобен — мелкие резьбы, штуцеры</td><td class="num">2 шт</td></tr>
-    <tr><td class="n">5</td><td><b>Клипсы / хомуты крепёжные</b> под диаметр трубы</td><td>Закрепить трубу по стене</td><td class="num">8 шт</td></tr>
-    <tr><td class="n">6</td><td><b>Скотч малярный</b></td><td>Заклеить трубку дистрибьютора при засыпке — критично</td><td class="num">1 шт</td></tr>
-    <tr><td class="n">7</td><td><b>Воронка широкая</b> (горловина от 5 см)</td><td>Засыпать кварц и загрузку в баллон</td><td class="num">1 шт</td></tr>
-    <tr><td class="n">8</td><td><b>Ведро мерное 10 л</b></td><td>Замер производительности насоса, промывка</td><td class="num">1 шт</td></tr>
+    <tr><td class="n">4</td><td><b>ФУМ-лента</b>, широкая</td><td>Где лён неудобен — мелкие резьбы и штуцеры</td><td class="num">2 шт</td></tr>
+    <tr><td class="n">5</td><td><b>Клипсы крепёжные</b> под диаметр трубы</td><td>Закрепить трубу по стене</td><td class="num">8 шт</td></tr>
+    <tr><td class="n">6</td><td><b>Скотч малярный</b></td><td>Заклеить трубку дистрибьютора при засыпке — без этого не начинать</td><td class="num">1 шт</td></tr>
+    <tr><td class="n">7</td><td><b>Воронка широкая</b>, горловина от 5 см</td><td>Засыпать кварц и загрузку в баллон</td><td class="num">1 шт</td></tr>
+    <tr><td class="n">8</td><td><b>Ведро мерное 10 л</b></td><td>Промывка, контрольные замеры</td><td class="num">1 шт</td></tr>
     <tr><td class="n">9</td><td><b>Смазка силиконовая сантехническая</b></td><td>Уплотнительное кольцо горловины баллона</td><td class="num">1 шт</td></tr>
     <tr><td class="n">10</td><td><b>Стяжки пластиковые</b> 200 мм</td><td>Фиксация дренажного шланга и кабеля</td><td class="num">1 уп</td></tr>
   </tbody>
 </table></div>
 
-<h3>Что может понадобиться дополнительно</h3>
+<h3>Стоит взять заодно</h3>
 <div class="tw"><table>
-  <thead><tr><th>Позиция</th><th>Когда нужна</th><th class="num">Ориентир</th></tr></thead>
+  <thead><tr><th>Позиция</th><th>Зачем</th><th class="num">Ориентир</th></tr></thead>
   <tbody>
-    <tr><td><b>Запасной картридж 10BB 5 мкм</b></td><td>Прежний был забит железом наглухо. Первые месяцы менять чаще обычного — возьмите сразу второй</td><td class="num">500 ₽</td></tr>
-    <tr><td><b>Тройник 1″ + кран 1/2″</b></td><td>Точка отбора проб после системы — удобно проверять жёсткость, не разбирая ничего</td><td class="num">600 ₽</td></tr>
-    <tr><td><b>Удлинитель или розетка</b></td><td>Если рядом с колонной нет розетки 220 В в пределах 1,5 м</td><td class="num">500 ₽</td></tr>
+    <tr><td><b>Запасной картридж 10BB 5 мкм</b></td><td>Прежний забился железом наглухо. Первые месяцы менять чаще обычного</td><td class="num">500 ₽</td></tr>
+    <tr><td><b>Тройник 1″ + кран 1/2″</b></td><td>Точка отбора проб после системы — проверять жёсткость, ничего не разбирая</td><td class="num">600 ₽</td></tr>
+    <tr><td><b>Удлинитель или розетка</b></td><td>Если у места колонны нет розетки 220 В в пределах полутора метров</td><td class="num">500 ₽</td></tr>
   </tbody>
 </table></div>
 
 <div class="note">
-  Инструмент, который понадобится: два разводных ключа, газовый ключ, перфоратор или ударная дрель с бурами по бетону, уровень, рулетка, крестовая и плоская отвёртки, нож. Если труба полипропиленовая — паяльник с насадками 25 и 32 мм.
+  <b>Инструмент:</b> паяльник для полипропилена с насадками, два разводных ключа, газовый ключ, перфоратор или ударная дрель с бурами по бетону, уровень, рулетка, отвёртки крестовая и плоская, нож, автомобильный манометр (для бака), автонасос.
 </div>
 
-<!-- 2 -->
-<h2 id="have"><span class="num">2</span>Что уже привезено</h2>
-<p class="h2sub">Всё это заказано на Ozon и лежит на объекте. Перед началом вскройте и сверьте комплектность — особенно колонну.</p>
+<h2 id="have"><span class="num">2</span>Что привезено — проверить коробки</h2>
+<p class="h2sub">Всё заказано на Ozon и лежит на объекте. До начала вскрыть и сверить комплектность, особенно колонну.</p>
 
-<ul class="check">
-  <li><b>Колонна умягчителя RunXin 1054 F117Q3</b> — баллон 10×54″, автоматический клапан по счётчику воды, солевой бак 70 л. Внутри должны быть: <b>дистрибьютор</b> (трубка с нижней корзиной-«грибком»), уплотнительное кольцо горловины, блок питания, дренажный штуцер, трубка солезаборника.</li>
-  <li><b>Загрузка Waterlux A — 37 литров</b> (мешок 25 л + мешок 12 л). Комплексная: снимает и жёсткость, и марганец.</li>
-  <li><b>Кварц зернистый 2–5 мм, 10 кг</b> — подложка под загрузку.</li>
-  <li><b>Фильтр грубой очистки самопромывной</b>, 1″, сетка 100 мкм, латунь.</li>
-  <li><b>Корпус фильтра 10BB</b> (Big Blue) + <b>картридж полипропиленовый 5 мкм</b>. ⚠️ На вводе <b>уже стоит такой же корпус БАРЬЕР ПРОФИ BB 10</b>, подключённый через латунные американки, — в него 20.09 поставлен новый картридж 5 мкм. Новый корпус с Ozon идёт <b>в запас</b>, вешать его не нужно.</li>
-  <li><b>Соль таблетированная, 2 мешка по 25 кг.</b></li>
-  <li><b>Питьевой фильтр Аквафор Морион DWM-101SN</b> — обратный осмос с минерализацией, под мойку. Кран для чистой воды в мойке уже врезан.</li>
-  <li><b>Краны шаровые 1″ латунь — 3 шт</b>, <b>американки 1″ — 4 шт</b>, <b>тройники 1″ — 2 шт</b>.</li>
-  <li><b>Лён сантехнический с пастой Unipak</b>, <b>хомуты червячные 16–27 мм</b>, <b>шланг для слива</b>.</li>
-  <li><b>Тест-полоски на жёсткость воды</b> — для проверки после запуска и дальше раз в месяц.</li>
-</ul>
+<div class="tw"><table>
+  <thead><tr><th>Позиция</th><th>Что проверить</th></tr></thead>
+  <tbody>
+    <tr><td><b>Колонна RunXin 1054 F117Q3</b></td><td>В коробке: баллон 10×54″, клапан, солевой бак 70 л, <b>дистрибьютор</b> (трубка с нижней корзиной), уплотнительное кольцо горловины, блок питания, дренажный штуцер, трубка солезаборника</td></tr>
+    <tr><td><b>Загрузка Waterlux A, 37 л</b></td><td>Мешок 25 л плюс мешок 12 л. Снимает жёсткость, марганец и железо</td></tr>
+    <tr><td><b>Кварц 2–5 мм, 10 кг</b></td><td>Фракция именно 2–5 мм</td></tr>
+    <tr><td><b>Сетчатый фильтр 100 мкм</b>, 1″, латунь</td><td>Самопромывной, со сливным краном</td></tr>
+    <tr><td><b>Соль таблетированная</b></td><td>2 мешка по 25 кг, для водоочистки</td></tr>
+    <tr><td><b>Осмос Аквафор Морион DWM-101SN</b></td><td>С минерализацией. Кран для чистой воды в мойке уже врезан</td></tr>
+    <tr><td><b>Краны 1″ — 3, американки 1″ — 4, тройники 1″ — 2</b></td><td>Латунь</td></tr>
+    <tr><td><b>Лён Unipak, хомуты 16–27 мм, дренажный шланг</b></td><td>Шланг в комплекте клапана около метра</td></tr>
+    <tr><td><b>Тест-полоски на жёсткость</b></td><td>Для проверки после запуска и дальше раз в месяц</td></tr>
+    <tr><td><b>Корпус 10BB + картридж 5 мкм</b></td><td>⚠️ <b>В запас, вешать не нужно.</b> На вводе уже стоит такой же БАРЬЕР ПРОФИ BB 10, в него 20.09 поставлен новый картридж</td></tr>
+  </tbody>
+</table></div>
 
 <div class="warn">
-  <div class="t">Если в коробке с колонной нет дистрибьютора или солевого бака</div>
-  Не начинайте сборку. Дистрибьютор отдельно в обычном магазине не купить, а без него загрузка уйдёт в трубы по всему дому — сначала найдите его в коробке или требуйте у продавца.
+  <div class="t">Если в коробке нет дистрибьютора или солевого бака</div>
+  Не начинайте сборку. Дистрибьютор в обычном магазине не купить, а без него загрузка уйдёт в трубы по всему дому. Сначала найдите его в упаковке или требуйте у продавца.
 </div>
 
-<!-- 3 -->
-<h2 id="water"><span class="num">3</span>Какая вода и что с ней делаем</h2>
-<p class="h2sub">Протокол аккредитованной лаборатории ЦАККВ ООО «АВК» от 24.08.2026. Отбор — из крана холодной воды на кухне.</p>
+<h2 id="water"><span class="num">3</span>Вода: что в ней и что делаем</h2>
+<p class="h2sub">Протокол аккредитованной лаборатории ЦАККВ ООО «АВК» № 11-Б и справка № 23-СВ. Отбор 20.08.2026 из крана холодной воды на кухне.</p>
 
 <div class="tw"><table>
   <thead><tr><th>Показатель</th><th class="num">Факт</th><th class="num">Норма</th><th>Что это значит</th></tr></thead>
   <tbody>
-    <tr><td><b>Жёсткость</b></td><td class="num">10,5 °Ж</td><td class="num">7–10</td><td>Жёсткая вода. Вся накипь — отсюда</td></tr>
+    <tr><td><b>Жёсткость</b></td><td class="num">10,5 °Ж</td><td class="num">7 / 10</td><td>Жёсткая вода. Вся накипь — отсюда</td></tr>
     <tr><td><b>Марганец</b></td><td class="num">0,415 мг/л</td><td class="num">0,1</td><td>Превышение вчетверо. Тёмный налёт, пятна на белье</td></tr>
-    <tr><td><b>Железо общее</b></td><td class="num">&lt;0,05</td><td class="num">0,3</td><td>⚠️ Цифра занижена: пробу брали через забитый фильтр, он железо и снимал</td></tr>
+    <tr><td><b>Железо общее</b></td><td class="num">&lt;0,05</td><td class="num">0,3</td><td>⚠️ Занижено: пробу брали через фильтр, который железо и снимал</td></tr>
     <tr><td>pH</td><td class="num">7,4</td><td class="num">6–9</td><td>Норма</td></tr>
-    <tr><td>Мутность</td><td class="num">&lt;1</td><td class="num">2,6</td><td>Взвеси нет, вода прозрачная</td></tr>
+    <tr><td>Мутность</td><td class="num">&lt;1</td><td class="num">2,6</td><td>⚠️ Тоже через фильтр. Реально взвесь есть — картридж ею и забился</td></tr>
     <tr><td>Нитраты / нитриты</td><td class="num">1,69 / 0,04</td><td class="num">45 / 3,0</td><td>Чисто, стоки в скважину не попадают</td></tr>
+    <tr><td>Аммиак</td><td class="num">&lt;0,1</td><td class="num">2,0</td><td>Норма</td></tr>
+    <tr><td>Сульфаты</td><td class="num">307 мг/л</td><td class="num">500</td><td>В норме, но заметны на вкус</td></tr>
     <tr><td>Сухой остаток</td><td class="num">856 мг/л</td><td class="num">1000</td><td>В норме, но высоковато — отсюда осмос на кухню</td></tr>
-    <tr><td>Микробиология</td><td class="num" colspan="2">не обнаружено</td><td>УФ-лампа не нужна</td></tr>
+    <tr><td>Микробиология</td><td class="num">не обн.</td><td class="num">0</td><td>ОМЧ, колиформные, E. coli — чисто. УФ-лампа не нужна</td></tr>
   </tbody>
 </table></div>
 
 <div class="warn">
   <div class="t">Железо в воде есть, хотя в анализе его нет</div>
   20.09 сняли картридж с фильтра на вводе — он был <b>насквозь охристо-рыжий</b>, колба в буром иле. Это железо, которое фильтр снимал годами, поэтому в пробу оно не попало. Реально в воде порядка 0,5–1,5 мг/л.
-  <p style="margin:9px 0 0">На выбор оборудования это не влияет: <b>Waterlux A держит железо до 12 мг/л</b>, запас многократный. Но механический фильтр теперь стоит <b>до колонны</b>, чтобы осадок не уходил в загрузку, и первые месяцы картридж придётся менять чаще.</p>
+  <p style="margin:9px 0 0">На выбор оборудования это не влияет: <b>Waterlux A держит железо до 12 мг/л</b>. Но механический фильтр обязан стоять <b>до колонны</b>, чтобы осадок не уходил в загрузку, и первые месяцы картридж придётся менять чаще обычного.</p>
 </div>
 
 <div class="note">
-  <b>Почему одна колонна, а не две ступени.</b> Waterlux A снимает жёсткость, марганец и железо одной загрузкой — рабочие диапазоны с запасом: марганец до 2 мг/л при наших 0,415, железо до 12 мг/л при наших 0,5–1,5. Отдельная аэрационная колонна с компрессором нужна при железе от 5 мг/л и выше — здесь до этого далеко. Механическую часть железа ловит фильтр перед колонной.
+  <b>Почему одна колонна, а не две ступени.</b> Waterlux A снимает жёсткость, марганец и железо одной загрузкой, рабочие диапазоны с запасом: марганец до 2 мг/л при наших 0,415, железо до 12 при наших 0,5–1,5. Отдельная аэрационная колонна с компрессором нужна при железе от 5 мг/л — здесь до этого далеко.
 </div>
 
-<!-- 4 -->
-<h2 id="measure"><span class="num">4</span>Замеры — что уже известно</h2>
-<p class="h2sub">Обследование проведено 20.09.2026. Заново мерить не нужно, кроме одного пункта.</p>
+<h2 id="known"><span class="num">4</span>Что уже известно об объекте</h2>
+<p class="h2sub">Обследование проведено 20.09.2026. Заново мерить не нужно — кроме одного пункта.</p>
 
-<div class="card">
-  <h3 style="margin-top:0">Условия на месте — проверить до начала работ</h3>
-  <ol style="margin:0;padding-left:19px;display:flex;flex-direction:column;gap:9px">
-    <li><b>Место под колонну:</b> высота <b>160 см</b> вместе с клапаном плюс 20 см сверху, чтобы снять клапан. Рядом солевой бак — круг диаметром 40 см. Плюс подход, чтобы досыпать соль.</li>
-    <li><b>Розетка 220 В</b> в пределах полутора метров — клапан электронный, работает от сети постоянно.</li>
-    <li><b>В котельной всегда плюс.</b> Колонна с водой не должна замерзать.</li>
-    <li><b>Расстояние от колонны до сливной ямы</b> — от него зависит, хватит ли шланга из комплекта (в нём около метра). Померить рулеткой: <span class="field" style="min-width:80px"></span> м</li>
-    <li><b>Гидроаккумулятор должен быть мембранный.</b> Wester WAO-50 — мембранный, это проверено. Если мембрана окажется порванной (см. замер воздуха ниже), бак под замену.</li>
-  </ol>
-</div>
-
-<div class="tw"><table class="tight">
-  <thead><tr><th>Что</th><th class="num">Замерено</th><th>Вывод</th></tr></thead>
+<div class="tw"><table>
+  <thead><tr><th>Что</th><th class="num">Факт</th><th>Вывод</th></tr></thead>
   <tbody>
-    <tr><td><b>Производительность насоса</b><br>уличный кран, 10 л</td><td class="num val">63 л/мин</td><td>Отлично. Промывке колонны нужно 10 л/мин — запас шестикратный</td></tr>
+    <tr><td><b>Производительность насоса</b><br>уличный кран, 10 л за 9,5 сек</td><td class="num val">63 л/мин</td><td>Отлично. Обратной промывке колонны нужно 10 л/мин — запас шестикратный</td></tr>
     <tr><td><b>Реле PM5 — включение</b></td><td class="num val">3,2 бар</td><td>Годится, поднимать не надо</td></tr>
-    <tr><td><b>Реле PM5 — выключение</b></td><td class="num val">3,5 бар</td><td>⚠️ Разница всего 0,3 — <b>надо поднять до 4,8</b>, см. раздел 6</td></tr>
-    <tr><td><b>Гидроаккумулятор</b></td><td class="num val">Wester WAO-50</td><td>50 л, до 10 бар, в кессоне. <b>Общий на два дома</b></td></tr>
-    <tr><td><b>Манометры</b></td><td class="num val">2 шт</td><td>Один в котельной на вводе, второй в кессоне. Настраивать по кессонному</td></tr>
-    <tr><td><b>Фильтр на вводе</b></td><td class="num val">заменён</td><td>Картридж был забит железом наглухо, поставлен новый 5 мкм</td></tr>
+    <tr><td><b>Реле PM5 — выключение</b></td><td class="num val">3,5 бар</td><td>⚠️ Разница всего 0,3 — поднять до <b>4,5</b>, раздел 6</td></tr>
+    <tr><td><b>Гидроаккумулятор</b></td><td class="num val">Wester WAO-50</td><td>50 л, до 10 бар, 2024 г., в кессоне. <b>Общий на два дома</b></td></tr>
+    <tr><td><b>Манометры</b></td><td class="num val">2 шт</td><td>В котельной на вводе и в кессоне. Настраивать по кессонному — он рядом с реле</td></tr>
+    <tr><td><b>Фильтр на вводе</b></td><td class="num val">БАРЬЕР BB 10</td><td>Картридж был забит железом, 20.09 заменён на новый 5 мкм</td></tr>
+    <tr><td><b>Труба в доме</b></td><td class="num val">полипропилен</td><td>VALTEC, паяная. Ввод — ПНД, переход латунной американкой</td></tr>
   </tbody>
 </table></div>
 
+<h3>Условия на месте — проверить до начала работ</h3>
+<div class="card">
+  <ol style="margin:0;padding-left:19px;display:flex;flex-direction:column;gap:9px;font-size:14.5px">
+    <li><b>Место под колонну:</b> высота <b>160 см</b> вместе с клапаном плюс 20 см сверху, чтобы клапан снимался. Рядом солевой бак — круг диаметром 40 см и подход к нему, чтобы досыпать соль.</li>
+    <li><b>Розетка 220 В</b> в пределах полутора метров: клапан электронный и питается от сети постоянно.</li>
+    <li><b>В котельной всегда плюс.</b> Колонна с водой не должна замерзать.</li>
+    <li><b>Расстояние от колонны до сливной ямы.</b> В комплекте клапана шланг около метра — если дальше, нужен длиннее. Померить: <span class="field" style="min-width:70px"></span> м</li>
+  </ol>
+</div>
+
 <div class="warn">
   <div class="t">Единственный замер, который остался — воздух в гидроаккумуляторе</div>
-  Обесточить насос, слить воду до нуля на манометре, приложить автомобильный манометр к ниппелю бака. <b>Должно быть 3,0 бар</b> (на 0,2 ниже порога включения).
-  <p style="margin:9px 0 0">⚠️ <b>Если из ниппеля пойдёт вода — мембрана порвана</b>, бак под замену (около 7 000 ₽ за такой же Wester 50 л). Дальше настраивать бесполезно.</p>
-  <p style="margin:9px 0 0">Факт: <span class="field" style="min-width:90px"></span> бар &nbsp;·&nbsp; вода из ниппеля: <span class="field" style="min-width:70px"></span></p>
+  Обесточить насос, открыть кран, слить воду до нуля на манометре. Приложить автомобильный манометр к ниппелю бака (под колпачком сбоку). <b>Должно быть 3,0 бар</b> — на 0,2 ниже порога включения.
+  <p style="margin:9px 0 0">⚠️ <b>Если из ниппеля пойдёт вода — мембрана порвана.</b> Бак под замену, около 7 000 ₽ за такой же Wester 50 л. Дальше настраивать бесполезно: провалы давления останутся.</p>
+  <p style="margin:9px 0 0">Факт: <span class="field" style="min-width:80px"></span> бар &nbsp;·&nbsp; вода из ниппеля: <span class="field" style="min-width:60px"></span></p>
 </div>
 
 <div class="note">
-  <b>Про поток в доме — не пугаться и не перемеривать.</b> Замеры через смесители дают 4–7 л/мин, но это предел самих смесителей: в ванной стоит модель с выдвижной лейкой на тонком шланге, а горячую воду ограничивает котёл Navien (13,8 л/мин). Колонна подключается <b>к магистрали напрямую</b>, минуя всё это, и там поток определяется насосом и трубой — запаса достаточно.
+  <b>Про поток в доме — не перемеривать.</b> Замеры через смесители дают 4–7 л/мин, но это предел самих смесителей: в ванной стоит модель с выдвижной лейкой на тонком шланге, а горячую воду вдобавок ограничивает котёл Navien (13,8 л/мин). Колонна подключается к магистрали напрямую, минуя всё это.
 </div>
 
-<!-- 5 -->
 <h2 id="scheme"><span class="num">5</span>Схема подключения</h2>
-<p class="h2sub">Механическая очистка до колонны — обязательно: в воде есть железо, осадок не должен попасть в загрузку.</p>
+<p class="h2sub">Порядок строгий: механическая очистка до колонны — в воде есть железо, осадок не должен попасть в загрузку.</p>
 
 <div class="scheme">
   <div class="chain">
-    <span class="b">Скважина</span><i>→</i>
+    <i>кессон:</i><span class="b">Скважина</span><i>→</i>
     <span class="b">Насос</span><i>→</i>
     <span class="b">Бак 50 л</span><i>→</i>
     <span class="b">Реле PM5</span><i>→</i>
-    <span class="b alt">кессон</span>
+    <span class="b">Манометр</span>
   </div>
   <div class="chain">
-    <i>в дом:</i><span class="b">ПНД → ППР</span><i>→</i>
-    <span class="b">Кран красный</span><i>→</i>
-    <span class="b">Манометр</span><i>→</i>
+    <i>ввод:</i><span class="b alt">ПНД</span><i>→</i>
+    <span class="b alt">Американка</span><i>→</i>
+    <span class="b alt">Кран красный</span><i>→</i>
+    <span class="b alt">Манометр</span><i>→</i>
     <span class="b">Сетчатый 100 мкм</span><i>→</i>
     <span class="b">БАРЬЕР 5 мкм</span>
   </div>
   <div class="chain">
-    <i>↳</i><span class="b">Тройник 1</span><i>→</i>
+    <i>колонна:</i><span class="b">Тройник 1</span><i>→</i>
     <span class="b">Кран</span><i>→</i>
     <span class="b">КОЛОННА</span><i>→</i>
     <span class="b">Кран</span><i>→</i>
@@ -364,26 +342,26 @@
   </div>
   <div class="chain">
     <i>обвод:</i><span class="b alt">Тройник 1</span><i>→</i>
-    <span class="b alt">Кран байпаса</span><i>→</i>
+    <span class="b alt">Кран обвода</span><i>→</i>
     <span class="b alt">Тройник 2</span>
   </div>
   <div class="chain">
-    <i>слив:</i><span class="b alt">Клапан колонны</span><i>→</i>
+    <i>слив:</i><span class="b alt">Штуцер DRAIN</span><i>→</i>
     <span class="b alt">Шланг</span><i>→</i>
     <span class="b alt">Разрыв струи 3–5 см</span><i>→</i>
     <span class="b alt">Сливная яма</span>
   </div>
   <div class="chain">
-    <i>кухня:</i><span class="b alt">Холодная</span><i>→</i>
+    <i>кухня:</i><span class="b alt">Холодная под мойкой</span><i>→</i>
     <span class="b alt">Осмос DWM-101SN</span><i>→</i>
-    <span class="b alt">Питьевой кран (уже врезан)</span>
+    <span class="b alt">Питьевой кран</span>
   </div>
-  <p class="leg"><b>Что уже собрано:</b> переход ПНД→полипропилен, отсекающий кран, манометр и корпус БАРЬЕР — всё стоит на вводе. Добавляется сетчатый фильтр перед БАРЬЕРОМ и колонна с обвязкой после него.</p>
+  <p class="leg"><b>Уже собрано:</b> переход ПНД→полипропилен, красный кран, манометр и корпус БАРЬЕР. <b>Добавляется:</b> сетчатый фильтр перед БАРЬЕРОМ и колонна с обвязкой после него.</p>
   <p class="leg" style="margin-top:6px"><b>Обвод</b> — три крана: два по краям колонны и один между тройниками. В работе крайние открыты, средний закрыт. Чтобы снять колонну не останавливая дом — наоборот.</p>
 </div>
 
 <div class="note">
-  <b>Потери давления по этой схеме:</b> сетчатый 0,2 + БАРЬЕР 0,3 + колонна 0,6 = <b>1,1 бар</b>. При нижнем пороге реле 3,2 на кухне останется 2,1 бар — питьевому фильтру хватает (нужно 2,0). <b>Второй корпус 10BB после колонны не ставим</b> — он добавил бы ещё 0,3 бар, и запаса уже не осталось бы.
+  <b>Потери давления по этой схеме:</b> сетчатый 0,2 + БАРЬЕР 0,3 + колонна 0,6 = <b>1,1 бар</b>. При нижнем пороге реле 3,2 на кухне останется <b>2,1 бар</b>, питьевому фильтру хватает — ему нужно 2,0.
 </div>
 
 <div class="warn">
@@ -391,9 +369,8 @@
   Откачивается ассенизатором, биологии, которую убивает соль, там нет. Отдельный дренажный колодец <b>делать не надо</b>: рядом скважина, соль в грунт около неё недопустима.
 </div>
 
-<!-- 6 -->
-<h2 id="pressure"><span class="num">6</span>Настройка реле давления PM5</h2>
-<p class="h2sub">Делается первой, до монтажа. Реле в кессоне, модель Italtecnica PM5, диапазон 1–5 бар.</p>
+<h2 id="pressure"><span class="num">6</span>Кессон: воздух в баке и реле PM5</h2>
+<p class="h2sub">Делается первым, до всей сантехники. Реле Italtecnica PM5, диапазон регулировки 1–5 бар.</p>
 
 <div class="warn">
   <div class="t">Под крышкой реле — 220 вольт</div>
@@ -402,15 +379,15 @@
 
 <div class="card">
   <h3 style="margin-top:0">Что не так сейчас</h3>
-  <p>Пороги стоят <b>3,2 на включение и 3,5 на выключение</b>. Разница всего 0,3 бар, а должна быть 1,2–1,5. Из-за этого бак на 50 литров отдаёт всего три литра, и насос дёргается:</p>
+  <p>Пороги стоят <b>3,2 на включение и 3,5 на выключение</b>. Разница 0,3 бар, а должна быть 1,2–1,5. Из-за этого бак на 50 литров отдаёт всего три, и насос дёргается:</p>
   <div class="tw"><table>
-    <thead><tr><th>Разница порогов</th><th class="num">Полезный объём бака</th><th class="num">Пусков за час промывки</th></tr></thead>
+    <thead><tr><th>Пороги</th><th class="num">Разница</th><th class="num">Полезный объём бака</th><th class="num">Пусков за час промывки</th></tr></thead>
     <tbody>
-      <tr><td>0,3 бар — сейчас</td><td class="num">≈ 3 л</td><td class="num" style="color:var(--warn)"><b>≈ 200</b></td></tr>
-      <tr><td><b>1,3 бар — цель</b></td><td class="num">≈ 12–14 л</td><td class="num" style="color:var(--ok)"><b>≈ 50</b></td></tr>
+      <tr><td>3,2 / 3,5 — сейчас</td><td class="num">0,3</td><td class="num">≈ 3 л</td><td class="num" style="color:var(--warn)"><b>≈ 200</b></td></tr>
+      <tr><td><b>3,2 / 4,5 — цель</b></td><td class="num"><b>1,3</b></td><td class="num">≈ 12 л</td><td class="num" style="color:var(--ok)"><b>≈ 50</b></td></tr>
     </tbody>
   </table></div>
-  <p style="margin-bottom:0"><b>Нижний порог 3,2 не трогаем</b> — его хватает: на кухне остаётся 2,1 бар при нужных двух. Поднимаем только верхний.</p>
+  <p style="margin-bottom:0"><b>Нижний порог 3,2 не трогаем</b> — его хватает: на кухне остаётся 2,1 бар при нужных двух. Поднимаем только верхний, до 4,5. Выше не надо: предел реле 5,0, на упоре оно работает нестабильно.</p>
 </div>
 
 <ol class="steps">
@@ -420,68 +397,67 @@
     <ul>
       <li>Открыть кран в доме, дождаться нуля на манометре</li>
       <li>Автомобильным манометром на ниппель бака — нужно <b>3,0 бар</b></li>
-      <li>Меньше — подкачать автонасосом. Больше — стравить</li>
-      <li>⚠️ <b>Пошла вода из ниппеля — мембрана порвана</b>, дальше не настраивать, бак менять</li>
+      <li>Меньше — подкачать автонасосом, больше — стравить</li>
+      <li>⚠️ <b>Пошла вода из ниппеля — мембрана порвана.</b> Дальше не настраивать, бак менять</li>
     </ul></li>
   <li><div class="st">Снять крышку реле</div>
-    <ul><li>Один винт сверху. Под крышкой две пружины: большая и малая</li></ul></li>
-  <li><div class="st">Малой гайкой поднять верхний порог до 4,8</div>
+    <ul><li>Один винт сверху. Под крышкой две пружины с гайками: большая и малая</li></ul></li>
+  <li><div class="st">Малой гайкой поднять верхний порог до 4,5</div>
     <ul>
       <li>Малая пружина отвечает за <b>разницу</b> между порогами. По часовой — разница растёт</li>
-      <li>Включить насос, закрыть все краны, дождаться отключения — смотреть цифру на манометре <b>в кессоне</b></li>
-      <li>Крутить по четверти оборота, каждый раз проверяя</li>
+      <li>Подать питание, закрыть все краны, дождаться отключения насоса — смотреть цифру на манометре <b>в кессоне</b></li>
+      <li>Крутить по четверти оборота, каждый раз проверяя. Между подходами питание снимать</li>
     </ul></li>
-  <li><div class="st">Проверить, что нижний не уехал</div>
+  <li><div class="st">Проверить, что нижний порог не уехал</div>
     <ul>
       <li>Открыть кран, поймать момент запуска насоса</li>
-      <li>Должно остаться <b>3,2–3,5</b>. Если просело ниже 3,1 — подтянуть большой гайкой</li>
+      <li>Должно остаться <b>3,2–3,5</b>. Просело ниже 3,1 — подтянуть большой гайкой</li>
     </ul></li>
   <li><div class="st">Записать итог</div>
-    <ul><li>Включение <span class="field"></span> бар · выключение <span class="field"></span> бар · воздух <span class="field"></span> бар</li></ul></li>
+    <ul><li>Включение <span class="field"></span> бар · выключение <span class="field"></span> бар · воздух в баке <span class="field"></span> бар</li></ul></li>
 </ol>
 
 <div class="warn">
-  <div class="t">Если насос не дотягивает до 4,8</div>
-  Встал, скажем, на 4,3 и дальше не идёт — это его потолок, крутить дальше бессмысленно, он будет работать без остановки. Оставить как получилось: при 3,2/4,3 разница 1,1 и полезный объём около 10 литров, этого достаточно.
+  <div class="t">Если насос не дотягивает до 4,5</div>
+  Встал, скажем, на 4,2 и дальше не идёт — это его потолок, крутить бессмысленно, он будет работать без остановки. Оставить как получилось: при 3,2/4,2 разница 1,0 и полезный объём около 9 литров, этого достаточно.
 </div>
 
 <div class="ok">
   <div class="t">Бак и насос общие с соседним домом</div>
-  Сосед в курсе и ставит у себя такую же систему — подъём давления с ним согласован, ему тоже станет лучше. <b>Обязательно разведите время регенерации:</b> здесь 02:00, у соседа 04:00. Если совпадут, потребуется 20 л/мин на две колонны сразу — насос столько не даст, и обе промоются плохо.
+  Сосед в курсе и ставит у себя такую же систему — подъём давления согласован, ему тоже станет лучше. <b>Обязательно разведите время регенерации:</b> здесь 02:00, у соседа 04:00. Если совпадут, на две колонны разом понадобится 20 л/мин — насос столько не даст, и обе промоются плохо.
 </div>
 
-<!-- 7 -->
 <h2 id="column"><span class="num">7</span>Сборка и засыпка колонны</h2>
 <p class="h2sub">Самый ответственный этап. Ошибка здесь означает разборку и промывку всей системы.</p>
 
 <div class="warn">
   <div class="t">Главное правило засыпки</div>
-  Верх трубки дистрибьютора обязательно <b>заклеить скотчем</b> перед тем, как сыпать кварц и загрузку. Если внутрь трубки попадёт кварц — он уйдёт в клапан и заклинит его. Скотч снимается только после того, как весь материал засыпан.
+  Верх трубки дистрибьютора <b>обязательно заклеить скотчем</b> перед тем, как сыпать кварц и загрузку. Попадёт кварц внутрь трубки — уйдёт в клапан и заклинит его. Скотч снимается только после того, как всё засыпано.
 </div>
 
 <ol class="steps">
   <li><div class="st">Поставить баллон на место</div>
     <ul>
       <li>Ровная твёрдая поверхность, строго вертикально по уровню</li>
-      <li>Рядом слева или справа — солевой бак, между ними 10–15 см</li>
-      <li>Учесть: над баллоном нужно около 20 см, чтобы потом снять клапан</li>
+      <li>Солевой бак рядом, между ними 10–15 см</li>
+      <li>Над баллоном оставить около 20 см, чтобы потом снимался клапан</li>
     </ul></li>
-  <li><div class="st">Вставить дистрибьютор</div>
+  <li><div class="st">Вставить дистрибьютор и заклеить трубку</div>
     <ul>
-      <li>Трубка с нижней корзиной опускается до самого дна баллона, строго по центру</li>
-      <li>Верх трубки должен быть вровень с краем горловины. Если длиннее — обрезать ножовкой по металлу и зачистить заусенцы</li>
+      <li>Трубка с нижней корзиной опускается до самого дна, строго по центру</li>
+      <li>Верх трубки должен быть вровень с краем горловины. Длиннее — обрезать ножовкой по металлу, зачистить заусенцы</li>
       <li><b>Заклеить верх трубки скотчем</b></li>
     </ul></li>
   <li><div class="st">Засыпать кварц — 10 кг</div>
     <ul>
       <li>Через воронку, медленно, придерживая трубку по центру</li>
-      <li>Кварц ложится на дно слоем примерно 10–12 см и закрывает нижнюю корзину</li>
+      <li>Ляжет на дно слоем 10–12 см и закроет нижнюю корзину</li>
       <li>Проверить по уровню, что трубка не сместилась</li>
     </ul></li>
   <li><div class="st">Засыпать загрузку Waterlux A — все 37 литров</div>
     <ul>
       <li>Мешок 25 л плюс мешок 12 л, оба целиком</li>
-      <li>После засыпки внутри останется примерно треть свободного объёма — так и должно быть: при промывке загрузка расширяется. <b>Досыпать «чтобы полнее» нельзя</b></li>
+      <li>Внутри останется примерно треть свободного объёма — так и должно быть: при промывке загрузка расширяется. <b>Досыпать «чтобы полнее» нельзя</b></li>
     </ul></li>
   <li><div class="st">Снять скотч и очистить горловину</div>
     <ul>
@@ -491,62 +467,61 @@
   <li><div class="st">Установить клапан</div>
     <ul>
       <li>Уплотнительное кольцо смазать силиконовой смазкой</li>
-      <li>Трубка дистрибьютора входит в посадочное гнездо клапана — заводить аккуратно, не перекашивая</li>
-      <li>Клапан наворачивается <b>от руки</b>, без ключей и рычагов. Пластиковая резьба ключа не прощает</li>
+      <li>Трубка дистрибьютора входит в гнездо клапана — заводить аккуратно, без перекоса</li>
+      <li>Клапан наворачивается <b>от руки</b>, без ключей и рычагов: резьба пластиковая</li>
     </ul></li>
 </ol>
 
-<!-- 8 -->
 <h2 id="pipe"><span class="num">8</span>Врезка в магистраль</h2>
+<p class="h2sub">Порядок по ходу воды: сначала сетчатый фильтр ближе к вводу, потом тройники и колонна.</p>
 
 <ol class="steps">
   <li><div class="st">Перекрыть воду и сбросить давление</div>
-    <ul><li>Обесточить насос, открыть кран в нижней точке, слить участок</li></ul></li>
-  <li><div class="st">Врезать тройники</div>
-    <ul>
-      <li>Тройник 1 — до колонны, тройник 2 — после. Расстояние между ними по месту</li>
-      <li>Боковые отводы тройников смотрят друг на друга: между ними встанет кран обвода</li>
-    </ul></li>
+    <ul><li>Обесточить насос, закрыть красный кран на вводе, открыть кран в нижней точке, слить участок</li></ul></li>
   <li><div class="st">Поставить сетчатый фильтр 100 мкм</div>
     <ul>
-      <li><b>Перед корпусом БАРЬЕР</b>, то есть первым после манометра на вводе</li>
+      <li><b>Перед корпусом БАРЬЕР</b> — первым после манометра на вводе</li>
       <li>Стрелка на корпусе — по направлению потока</li>
-      <li>Под сливным краном фильтра должно быть место для ведра</li>
-    </ul></li>
-  <li><div class="st">Собрать обвязку колонны</div>
-    <ul>
-      <li>Кран на входе, кран на выходе, кран между тройниками (обвод)</li>
-      <li>К клапану колонны — через <b>американки</b>, по одной на вход и выход. Без них снять колонну можно будет только болгаркой</li>
-      <li>Вход и выход клапана подписаны IN и OUT — не перепутать</li>
-      <li>Все резьбовые соединения — на лён с пастой Unipak, по часовой, 5–8 витков</li>
-      <li>Переход с полипропилена на резьбу — через муфты ППР × 1″ НР, пайка утюгом</li>
+      <li>Под сливным краном оставить место для ведра</li>
     </ul></li>
   <li><div class="st">Корпус БАРЬЕР оставить где стоит</div>
     <ul>
-      <li>Он уже на вводе, <b>до колонны</b> — так и нужно, чтобы железо не шло в загрузку</li>
-      <li>Картридж 5 мкм в нём заменён 20.09, трогать не надо</li>
-      <li>Новый корпус с Ozon <b>не вешать</b> — в запас</li>
+      <li>Он на вводе, <b>до колонны</b> — так и нужно, чтобы железо не шло в загрузку</li>
+      <li>Картридж 5 мкм заменён 20.09, трогать не надо</li>
+      <li>Новый корпус с Ozon <b>не вешать</b> — он в запас</li>
+    </ul></li>
+  <li><div class="st">Врезать тройники</div>
+    <ul>
+      <li>Тройник 1 — после БАРЬЕРА, тройник 2 — дальше по ходу. Расстояние между ними по месту</li>
+      <li>Боковые отводы смотрят друг на друга: между ними встанет кран обвода</li>
+      <li>Переход с полипропилена на резьбу — через муфты ППР × 1″ НР, пайка утюгом</li>
+    </ul></li>
+  <li><div class="st">Собрать обвязку колонны</div>
+    <ul>
+      <li>Кран на входе, кран на выходе, кран между тройниками — это обвод</li>
+      <li>К клапану колонны — через <b>американки</b>, по одной на вход и выход. Без них снять колонну можно будет только болгаркой</li>
+      <li>Вход и выход клапана подписаны IN и OUT — не перепутать</li>
+      <li>Резьбовые соединения — на лён с пастой Unipak, по часовой, 5–8 витков</li>
     </ul></li>
   <li><div class="st">Закрепить трубу</div>
     <ul><li>Клипсами по стене, шаг 50–70 см, без провисаний</li></ul></li>
 </ol>
 
-<!-- 9 -->
 <h2 id="drain"><span class="num">9</span>Слив в яму и солевой бак</h2>
 
 <ol class="steps">
   <li><div class="st">Подключить дренажный шланг</div>
     <ul>
       <li>От штуцера DRAIN на клапане к сливной яме</li>
-      <li>Зафиксировать <b>хомутом</b> с обеих сторон — при промывке идёт напор</li>
-      <li>Уклон вниз по всей длине, без петель и провисаний, где встанет вода</li>
-      <li>Длина не больше 5 м и не выше 1,5 м над клапаном — иначе не продавит</li>
+      <li>Зафиксировать <b>хомутом с обеих сторон</b> — при промывке идёт напор</li>
+      <li>Уклон вниз по всей длине, без петель, где встанет вода</li>
+      <li>Не длиннее 5 м и не выше 1,5 м над клапаном — иначе не продавит</li>
     </ul></li>
   <li><div class="st">Сделать разрыв струи</div>
     <ul>
       <li>Конец шланга <b>не опускать</b> в трубу и не вставлять в канализацию наглухо</li>
       <li>Между срезом шланга и приёмной трубой оставить воздушный зазор <b>3–5 см</b></li>
-      <li>Смысл: при засоре ямы стоки не смогут подняться обратно в фильтр</li>
+      <li>Смысл: при засоре ямы стоки не поднимутся обратно в фильтр</li>
     </ul></li>
   <li><div class="st">Подключить солевой бак</div>
     <ul>
@@ -555,40 +530,39 @@
     </ul></li>
   <li><div class="st">Засыпать соль и залить воду</div>
     <ul>
-      <li>Засыпать <b>полмешка</b> (около 12 кг) — на первый раз этого достаточно</li>
-      <li>Залить воды примерно <b>25 литров</b>, уровень около <b>25 см</b> от дна. Соль должна намокнуть и начать растворяться</li>
-      <li>Дальше бак заполняется автоматически после каждой регенерации</li>
+      <li>Засыпать <b>полмешка</b>, около 12 кг — на первый раз достаточно</li>
+      <li>Залить <b>25 литров воды</b>, это уровень примерно <b>25 см</b> от дна. Соль должна намокнуть и начать растворяться</li>
+      <li>Дальше бак наполняется автоматически после каждой регенерации</li>
     </ul></li>
   <li><div class="st">Подключить питание</div>
     <ul><li>Блок питания клапана в розетку 220 В. На дисплее появится время</li></ul></li>
 </ol>
 
-<!-- 10 -->
 <h2 id="valve"><span class="num">10</span>Программирование клапана</h2>
-<p class="h2sub">Параметры рассчитаны под эту воду: жёсткость 10,5 °Ж, загрузка 37 литров. Не оставляйте заводские — они настроены на другую воду и другой объём.</p>
+<p class="h2sub">Параметры рассчитаны под эту воду: жёсткость 10,5 °Ж, загрузка 37 литров. Заводские не оставлять — они под другую воду и другой объём.</p>
 
 <div class="tw"><table>
   <thead><tr><th>Параметр</th><th class="num">Значение</th><th>Пояснение</th></tr></thead>
   <tbody>
-    <tr><td><b>Режим регенерации</b></td><td class="num val">по объёму</td><td>Не по таймеру. Клапан умеет оба, с завода часто стоит таймер — тогда промывка идёт по расписанию вхолостую</td></tr>
-    <tr><td><b>Объём между регенерациями</b></td><td class="num val">2,7 м³</td><td>Расчёт: ресурс 37 л × 0,85 = 31,4 г-экв ÷ 10,5 = 3,0 м³, минус 10 % запаса</td></tr>
-    <tr><td><b>Время старта регенерации</b></td><td class="num val">02:00</td><td>Ночью. ⚠️ У соседа на том же насосе выставить <b>04:00</b> — совпадение промывок насос не потянет</td></tr>
+    <tr><td><b>Режим регенерации</b></td><td class="num val">по объёму</td><td>Не по таймеру. Клапан умеет оба, с завода часто стоит таймер — тогда промывка идёт вхолостую по расписанию</td></tr>
+    <tr><td><b>Объём между регенерациями</b></td><td class="num val">2,7 м³</td><td>Расчёт: 37 л × 0,85 = 31,4 г-экв ÷ 10,5 = 3,0 м³, минус 10 % запаса</td></tr>
+    <tr><td><b>Время старта</b></td><td class="num val">02:00</td><td>Ночью. ⚠️ У соседа на том же насосе — <b>04:00</b></td></tr>
     <tr><td>Обратная промывка</td><td class="num val">10 мин</td><td>Взрыхление загрузки, вынос мути</td></tr>
     <tr><td>Солевой раствор + медленная промывка</td><td class="num val">60 мин</td><td>Собственно восстановление загрузки</td></tr>
     <tr><td>Быстрая промывка</td><td class="num val">10 мин</td><td>Смыв остатков соли</td></tr>
-    <tr><td>Наполнение солевого бака</td><td class="num val">13 мин</td><td>Должно налить 20–25 л. <b>Проверить по факту</b> — замерить уровень после первой регенерации</td></tr>
-    <tr><td><b>Доза соли на цикл</b></td><td class="num val">7,4 кг</td><td>200 г на литр загрузки. Столько уйдёт за одну регенерацию</td></tr>
+    <tr><td>Наполнение солевого бака</td><td class="num val">13 мин</td><td>Должно налить 20–25 л. <b>Проверить по факту</b> после первой регенерации</td></tr>
+    <tr><td><b>Доза соли на цикл</b></td><td class="num val">7,4 кг</td><td>200 г на литр загрузки</td></tr>
   </tbody>
 </table></div>
 
-<h3>Настроить смешение на выходе — 3,5–4 °Ж</h3>
-<p>На клапане есть винт обводного смешения (bypass / blending). Им задаётся, какая часть воды идёт мимо загрузки. Нужно, чтобы на выходе было <b>3,5–4 °Ж</b>, то есть около 36 % потока идёт по обводу.</p>
-<div class="ok">
+<h3>Смешение на выходе — 3,5–4 °Ж</h3>
+<p>На клапане есть винт обводного смешения (bypass / blending): им задаётся, какая часть воды идёт мимо загрузки. Нужно, чтобы на выходе было <b>3,5–4 °Ж</b> — это около 36 % потока по обводу.</p>
+
+<div class="warn">
   <div class="t">Почему нельзя умягчать в ноль</div>
-  Умягчитель меняет кальций на натрий. При полном умягчении натрий поднимется примерно до 240 мг/л при норме 200 — вода станет солоноватой и не годной для питья. Плюс полностью умягчённая вода агрессивна к трубам. При 3,5–4 °Ж накипь падает втрое, натрий остаётся в норме, соли уходит меньше.
+  Умягчитель меняет кальций на натрий. При полном умягчении натрий поднимется примерно до <b>240 мг/л при норме 200</b> — вода станет солоноватой и негодной для питья. Плюс полностью умягчённая вода агрессивна к трубам. При 3,5–4 °Ж накипь падает втрое, натрий остаётся в норме, а соли уходит меньше.
 </div>
 
-<!-- 11 -->
 <h2 id="start"><span class="num">11</span>Первый запуск и промывка</h2>
 <p class="h2sub">Новая загрузка всегда пылит. До подачи воды в дом её нужно отмыть, иначе муть пойдёт по всем кранам.</p>
 
@@ -598,39 +572,38 @@
   <li><div class="st">Заполнить баллон водой медленно</div>
     <ul>
       <li>Кран на входе открывать <b>на четверть</b> и очень постепенно</li>
-      <li>Слушать: воздух выходит через дренаж. Резко открывать нельзя — гидроудар выбьет загрузку в дренаж и в дом</li>
+      <li>Резко открывать нельзя — гидроудар выбьет загрузку в дренаж и в дом</li>
       <li>Ждать, пока из дренажного шланга пойдёт ровная струя без воздуха</li>
     </ul></li>
   <li><div class="st">Промывать 15–20 минут</div>
     <ul>
       <li>Открыть вход полностью</li>
-      <li>Смотреть на воду в дренаже: сначала будет мутная и цветная — это нормально, пыль загрузки</li>
+      <li>Вода в дренаже сначала будет мутной и цветной — это пыль загрузки, нормально</li>
       <li>Промывать, пока не пойдёт прозрачная</li>
     </ul></li>
   <li><div class="st">Запустить полную регенерацию вхолостую</div>
     <ul>
-      <li>Принудительно, с клапана — весь цикл целиком, около 55 минут</li>
+      <li>Принудительно с клапана — весь цикл целиком, около 55 минут, расход примерно 230 литров</li>
       <li>Убедиться, что клапан забирает раствор из солевого бака: уровень воды в баке должен заметно упасть</li>
-      <li>После цикла бак снова наполнится водой — проверить уровень, должно быть 20–25 см</li>
+      <li>После цикла бак наполнится снова — проверить, что уровень вернулся к 20–25 см</li>
     </ul></li>
   <li><div class="st">Подать воду в дом</div>
     <ul>
-      <li>Открыть кран на выходе, закрыть обвод</li>
+      <li>Открыть краны на входе и выходе колонны, закрыть обвод</li>
       <li>Пролить каждый кран в доме по 2–3 минуты, начиная с ближнего</li>
       <li>Проверить все соединения на течь — особенно американки и горловину клапана</li>
     </ul></li>
-  <li><div class="st">Промыть фильтр грубой очистки</div>
-    <ul><li>Открыть сливной кран на фильтре на 10–15 секунд, подставив ведро</li></ul></li>
+  <li><div class="st">Промыть сетчатый фильтр</div>
+    <ul><li>Открыть его сливной кран на 10–15 секунд, подставив ведро</li></ul></li>
 </ol>
 
-<!-- 12 -->
 <h2 id="osmos"><span class="num">12</span>Питьевой фильтр под мойку</h2>
-<p class="h2sub">Ставится после того, как магистральная система запущена и промыта. Кран для чистой воды уже врезан в мойку.</p>
+<p class="h2sub">Ставится последним, когда магистраль запущена и промыта. Кран для чистой воды в мойке уже врезан.</p>
 
 <ol class="steps">
   <li><div class="st">Врезать в холодную воду</div>
     <ul>
-      <li>Адаптер из комплекта ставится на подводку холодной воды под мойкой</li>
+      <li>Адаптер из комплекта — на подводку холодной воды под мойкой</li>
       <li><b>Только холодная.</b> Горячая убьёт мембрану за неделю</li>
     </ul></li>
   <li><div class="st">Подключить дренаж</div>
@@ -639,54 +612,67 @@
       <li>Отверстие сверлится по центру хомута, край зачищается</li>
     </ul></li>
   <li><div class="st">Подключить кран чистой воды</div>
-    <ul><li>Трубка от фильтра к уже установленному крану, на цанговом соединении до упора</li></ul></li>
+    <ul><li>Трубка от фильтра к установленному крану, на цанговом соединении до упора</li></ul></li>
   <li><div class="st">Промыть перед использованием</div>
     <ul>
       <li>Дать наполниться баку, слить полностью. Повторить <b>два раза</b></li>
-      <li>Первая вода идёт с консервантом мембраны — пить её нельзя</li>
-      <li>Бак наполняется примерно за 40–60 минут</li>
+      <li>Первая вода идёт с консервантом мембраны — пить нельзя</li>
+      <li>Бак наполняется за 40–60 минут</li>
     </ul></li>
   <li><div class="st">Проверить давление на входе фильтра</div>
     <ul>
-      <li>Должно быть <b>не меньше 2,0 бар</b> — иначе бак будет наполняться часами или не наполнится совсем</li>
-      <li>Если меньше — вернуться к разделу 6 и поднять давление на реле</li>
+      <li>Должно быть <b>не меньше 2,0 бар</b>, иначе бак будет наполняться часами или не наполнится</li>
+      <li>Меньше — вернуться к разделу 6 и поднять верхний порог реле</li>
     </ul></li>
 </ol>
 
-<!-- 13 -->
-<h2 id="accept"><span class="num">13</span>Проверка и сдача</h2>
+<h2 id="check"><span class="num">13</span>Проверка после запуска</h2>
+<p class="h2sub">Семь пунктов. Пока все не сойдутся, систему считать несданной.</p>
 
-<div class="tw"><table class="tight">
+<div class="tw"><table>
   <thead><tr><th class="n">№</th><th>Что проверяем</th><th class="num">Норма</th><th class="num" style="width:78px">Факт</th></tr></thead>
   <tbody>
-    <tr><td class="n">1</td><td><b>Жёсткость на выходе системы</b> — тест-полоской из крана в ванной</td><td class="num val">3,5–4 °Ж</td><td class="bigfield"></td></tr>
+    <tr><td class="n">1</td><td><b>Жёсткость на выходе</b> — тест-полоской из крана в ванной</td><td class="num val">3,5–4 °Ж</td><td class="bigfield"></td></tr>
     <tr><td class="n">2</td><td><b>Давление на кухне</b> при открытом кране</td><td class="num val">≥ 2,0 бар</td><td class="bigfield"></td></tr>
     <tr><td class="n">3</td><td>Течей нет ни на одном соединении</td><td class="num val">сухо</td><td class="bigfield"></td></tr>
-    <tr><td class="n">4</td><td>Клапан показывает режим <b>по объёму</b> и время старта 02:00</td><td class="num val">да</td><td class="bigfield"></td></tr>
-    <tr><td class="n">4а</td><td>Реле в кессоне: включение 3,2 · выключение 4,8 · воздух в баке 3,0</td><td class="num val">да</td><td class="bigfield"></td></tr>
-    <tr><td class="n">5</td><td>Вода в солевом баке на уровне 20–25 см</td><td class="num val">да</td><td class="bigfield"></td></tr>
-    <tr><td class="n">6</td><td>Дренажный шланг закреплён, разрыв струи есть</td><td class="num val">да</td><td class="bigfield"></td></tr>
-    <tr><td class="n">7</td><td>Бак питьевого фильтра наполняется</td><td class="num val">да</td><td class="bigfield"></td></tr>
+    <tr><td class="n">4</td><td>Клапан: режим <b>по объёму</b>, 2,7 м³, старт 02:00</td><td class="num val">да</td><td class="bigfield"></td></tr>
+    <tr><td class="n">5</td><td>Реле в кессоне: 3,2 / 4,5, воздух в баке 3,0</td><td class="num val">да</td><td class="bigfield"></td></tr>
+    <tr><td class="n">6</td><td>Вода в солевом баке на уровне 20–25 см</td><td class="num val">да</td><td class="bigfield"></td></tr>
+    <tr><td class="n">7</td><td>Дренаж закреплён, разрыв струи есть, бак осмоса наполняется</td><td class="num val">да</td><td class="bigfield"></td></tr>
   </tbody>
 </table></div>
 
-<h3>Что помнить в эксплуатации</h3>
-<ul class="check">
-  <li><b>Где и как досыпать соль.</b> Расход примерно мешок 25 кг в месяц, досыпать когда уровень соли опустится ниже половины бака. Соль только таблетированная, для водоочистки</li>
-  <li><b>Как пользоваться тест-полосками.</b> Раз в месяц, из любого крана кроме питьевого. Если жёсткость поползла вверх — либо кончилась соль, либо сбилась настройка</li>
-  <li><b>Обвод.</b> Показать три крана и объяснить: если колонну надо отключить, крайние закрыть, средний открыть — вода в доме останется</li>
-  <li><b>Что бывает ночью.</b> Раз в 5 дней около двух часов ночи колонна шумит воду примерно час — это регенерация, так и должно быть</li>
-  <li><b>Картридж 10BB</b> менять примерно раз в полгода, <b>картриджи питьевого фильтра</b> — раз в год</li>
-  <li><b>При отключении электричества</b> клапан не регенерирует, но воду пропускает. После включения проверить, не сбилось ли время</li>
-</ul>
-
 <div class="note">
-  <b>Через месяц после запуска</b> сдать в лабораторию один показатель — марганец. Это проверка, что загрузка действительно его снимает. Если результат будет выше 0,1 мг/л — возможно, потребуется чаще регенерировать; это уже к наладке, не к монтажу.
+  <b>Через месяц после запуска</b> — сдать в лабораторию один показатель, <b>марганец</b> (около 1 400 ₽). Это проверка, что загрузка действительно его снимает, а не только жёсткость. Результат выше 0,1 мг/л означает, что надо чаще регенерировать: уменьшить объём между регенерациями с 2,7 до 2,2 м³.
 </div>
 
-<!-- 14 -->
-<h2 id="never"><span class="num">14</span>Чего делать нельзя</h2>
-<p class="h2sub">Семь ошибок, каждая из которых означает разборку или замену.</p>
+<h2 id="life"><span class="num">14</span>Эксплуатация и расходы</h2>
+
+<div class="tw"><table>
+  <thead><tr><th>Что</th><th class="num">Сколько</th><th>Пояснение</th></tr></thead>
+  <tbody>
+    <tr><td><b>Соль</b></td><td class="num val">1 500–1 900 ₽/мес</td><td>Регенерация раз в 5 дней, 7,4 кг за цикл — это 1,2–1,4 мешка по 25 кг в месяц. Досыпать, когда уровень соли опустится ниже половины бака</td></tr>
+    <tr><td><b>Картридж БАРЬЕР 10BB</b></td><td class="num val">≈ 500 ₽</td><td>Первые месяцы менять каждые 2–3 месяца — в воде железо. Когда стабилизируется, хватит раза в полгода</td></tr>
+    <tr><td><b>Картриджи осмоса</b></td><td class="num val">≈ 4 500 ₽/год</td><td>По регламенту Аквафора</td></tr>
+    <tr><td><b>Замена загрузки</b></td><td class="num val">раз в 5–8 лет</td><td>Около 19 000 ₽ по нынешним ценам</td></tr>
+    <tr><td><b>Нагрузка на сливную яму</b></td><td class="num val">+2,3–2,6 м³/мес</td><td>Промывка колонны 1,4 м³ плюс дренаж осмоса 0,9–1,2 м³. Это около 13 % к обычному объёму</td></tr>
+  </tbody>
+</table></div>
+
+<h3>Что помнить</h3>
+<div class="card">
+  <ul style="margin:0;padding-left:19px;display:flex;flex-direction:column;gap:9px;font-size:14.5px">
+    <li><b>Тест-полоски раз в месяц.</b> Из любого крана кроме питьевого. Должно быть 3,5–4 °Ж. Поползло вверх — либо кончилась соль, либо сбилась настройка клапана.</li>
+    <li><b>Ночной шум раз в пять дней.</b> Около двух часов ночи колонна примерно час гоняет воду — это регенерация, так и должно быть. В это время вода в доме идёт по обводу, неумягчённая.</li>
+    <li><b>Обвод.</b> Если колонну надо отключить — крайние краны закрыть, средний открыть. Вода в доме останется, просто жёсткая.</li>
+    <li><b>Соль только таблетированная</b>, для водоочистки. Не пищевая и не для посудомойки.</li>
+    <li><b>При отключении электричества</b> клапан не регенерирует, но воду пропускает. После включения проверить, не сбилось ли время — иначе промывка уйдёт на дневные часы.</li>
+    <li><b>Через год</b> — пересдать микробиологию и марганец. Весной, после паводка: это время максимального риска для скважины.</li>
+  </ul>
+</div>
+
+<h2 id="never"><span class="num">15</span>Чего делать нельзя</h2>
+<p class="h2sub">Девять ошибок, каждая из которых означает разборку, замену или неработающую систему.</p>
 
 <div class="tw"><table>
   <thead><tr><th class="n">№</th><th>Нельзя</th><th>Что будет</th></tr></thead>
@@ -698,31 +684,32 @@
     <tr><td class="n">5</td><td><b>Оставлять регенерацию по таймеру</b></td><td>Промывка вхолостую по расписанию: лишняя соль, лишняя вода в яму, износ клапана</td></tr>
     <tr><td class="n">6</td><td><b>Умягчать в ноль</b></td><td>Натрий выше нормы, вода солоноватая и агрессивная к трубам</td></tr>
     <tr><td class="n">7</td><td><b>Опускать дренажный шланг прямо в трубу</b></td><td>При засоре ямы стоки пойдут обратно в фильтр и в дом</td></tr>
-    <tr><td class="n">8</td><td><b>Ставить второй корпус 10BB после колонны</b></td><td>Съест 0,3 бар, и питьевому фильтру перестанет хватать давления</td></tr>
-    <tr><td class="n">9</td><td><b>Поднимать верхний порог реле выше 5,0</b></td><td>Предел PM5 — 5 бар. На упоре реле работает нестабильно</td></tr>
+    <tr><td class="n">8</td><td><b>Вешать второй корпус 10BB после колонны</b></td><td>Съест ещё 0,3 бар, и питьевому фильтру перестанет хватать давления</td></tr>
+    <tr><td class="n">9</td><td><b>Ставить регенерацию на то же время, что у соседа</b></td><td>Насос общий. На две колонны разом нужно 20 л/мин — обе промоются плохо</td></tr>
   </tbody>
 </table></div>
 
 <div class="warn">
   <div class="t">Если что-то не сходится с этим документом</div>
-  Не додумывайте и не подгоняйте на глаз. Расчёты сделаны под конкретный анализ воды и конкретное оборудование — если что-то не сходится, остановитесь и разберитесь, в чём различие, прежде чем продолжать.
+  Не додумывайте и не подгоняйте на глаз. Все числа посчитаны под конкретный анализ воды и конкретное оборудование. Расходится — остановитесь и разберитесь, в чём различие, прежде чем продолжать.
 </div>
 
 <div class="card" style="margin-top:30px">
   <h3 style="margin-top:0">Работы выполнены</h3>
   <div class="tw"><table>
     <tbody>
-      <tr><td style="width:46%">Монтажник, ФИО</td><td class="bigfield"></td></tr>
-      <tr><td>Дата выполнения</td><td class="bigfield"></td></tr>
+      <tr><td style="width:46%">Кто выполнял</td><td class="bigfield"></td></tr>
+      <tr><td>Дата</td><td class="bigfield"></td></tr>
       <tr><td>Подпись</td><td class="bigfield"></td></tr>
-      <tr><td>Замечания, что осталось</td><td class="bigfield" style="min-height:60px"></td></tr>
+      <tr><td>Что осталось, замечания</td><td class="bigfield" style="min-height:60px"></td></tr>
     </tbody>
   </table></div>
 </div>
 
 <footer>
-  Документ составлен по протоколу лабораторного исследования ЦАККВ ООО «АВК» № 11-Б и справке № 23-СВ от 24.08.2026.<br>
-  Расчёты: объём загрузки, ресурс, доза соли, падение давления, скорость промывки — под эту воду и это оборудование.
+  Составлено по протоколу ЦАККВ ООО «АВК» № 11-Б и справке № 23-СВ, отбор 20.08.2026,<br>
+  и по результатам обследования объекта 20.09.2026.<br>
+  Объём загрузки, ресурс, доза соли, пороги реле, потери давления — рассчитаны под эту воду и это оборудование.
 </footer>
 
 </div>
