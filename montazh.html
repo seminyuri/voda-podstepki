@@ -59,6 +59,7 @@
   th{background:var(--fill);text-align:left;padding:9px 10px;font-size:12px;letter-spacing:.06em;
      text-transform:uppercase;font-weight:700;border-bottom:2px solid var(--line);color:var(--mut)}
   td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.tight td,table.tight th{padding:8px 7px;font-size:14px}
   td.n{width:30px;text-align:center;color:var(--faint);font-variant-numeric:tabular-nums}
   td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
   tr:last-child td{border-bottom:none}
@@ -67,7 +68,7 @@
 
   /* поле для записи замера */
   .field{display:inline-block;min-width:96px;border-bottom:1.5px solid var(--acc);height:21px;margin:0 4px}
-  .bigfield{border:1px dashed var(--acc);border-radius:6px;min-height:34px;background:var(--card)}
+  .bigfield{border:1px dashed var(--acc);border-radius:6px;min-height:34px;background:var(--card);min-width:66px}
 
   /* чек-лист */
   ul.check{list-style:none;margin:10px 0;padding:0;display:flex;flex-direction:column;gap:10px}
@@ -125,6 +126,19 @@
     <span><b>Документ от:</b> 20 сентября 2026</span>
   </div>
 </header>
+
+<div class="card" style="border:2px solid var(--acc);background:var(--acc-bg)">
+  <h3 style="margin:0 0 4px;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:var(--acc)">Ключевые числа — сфотографируйте</h3>
+  <div class="tw"><table style="margin:8px 0 0">
+    <tbody>
+      <tr><td>Загрузка Waterlux A</td><td class="num val">37 л</td><td>Кварц-подложка</td><td class="num val">10 кг</td></tr>
+      <tr><td>Реле давления, включение</td><td class="num val">3,5 бар</td><td>Реле, выключение</td><td class="num val">5,0 бар</td></tr>
+      <tr><td>Воздух в гидроаккумуляторе</td><td class="num val">3,3 бар</td><td>Насос, расход</td><td class="num val">≥10 л/мин</td></tr>
+      <tr><td>Регенерация по объёму</td><td class="num val">2,7 м³</td><td>Старт регенерации</td><td class="num val">02:00</td></tr>
+      <tr><td>Доза соли на цикл</td><td class="num val">7,4 кг</td><td>Жёсткость на выходе</td><td class="num val">3,5–4 °Ж</td></tr>
+    </tbody>
+  </table></div>
+</div>
 
 <nav class="toc">
   <div>Содержание</div>
@@ -249,8 +263,8 @@
 <h2 id="measure"><span class="num">4</span>Замеры до начала работ</h2>
 <p class="h2sub">Сделайте все шесть замеров и запишите прямо сюда. От первых трёх зависит, заработает ли питьевой фильтр вообще.</p>
 
-<div class="tw"><table>
-  <thead><tr><th class="n">№</th><th>Что мерим</th><th>Как</th><th class="num">Должно быть</th><th class="num" style="width:110px">Факт</th></tr></thead>
+<div class="tw"><table class="tight">
+  <thead><tr><th class="n">№</th><th>Что мерим</th><th>Как</th><th class="num">Должно быть</th><th class="num" style="width:78px">Факт</th></tr></thead>
   <tbody>
     <tr><td class="n">1</td><td><b>Давление включения насоса</b></td><td>Манометр на гидроаккумуляторе. Открыть кран, дождаться щелчка реле — записать показание в этот момент</td><td class="num val">3,5 бар</td><td class="bigfield"></td></tr>
     <tr><td class="n">2</td><td><b>Давление выключения</b></td><td>Закрыть кран, дождаться второго щелчка</td><td class="num val">5,0 бар</td><td class="bigfield"></td></tr>
@@ -570,8 +584,8 @@
 <!-- 13 -->
 <h2 id="accept"><span class="num">13</span>Проверка и сдача</h2>
 
-<div class="tw"><table>
-  <thead><tr><th class="n">№</th><th>Что проверяем</th><th class="num">Норма</th><th class="num" style="width:110px">Факт</th></tr></thead>
+<div class="tw"><table class="tight">
+  <thead><tr><th class="n">№</th><th>Что проверяем</th><th class="num">Норма</th><th class="num" style="width:78px">Факт</th></tr></thead>
   <tbody>
     <tr><td class="n">1</td><td><b>Жёсткость на выходе системы</b> — тест-полоской из крана в ванной</td><td class="num val">3,5–4 °Ж</td><td class="bigfield"></td></tr>
     <tr><td class="n">2</td><td><b>Давление на кухне</b> при открытом кране</td><td class="num val">≥ 2,0 бар</td><td class="bigfield"></td></tr>
@@ -617,6 +631,18 @@
 <div class="warn">
   <div class="t">Если что-то не сходится с этим документом</div>
   Не додумывайте и не подгоняйте — позвоните заказчику: <b>Юрий, +7 927 817-93-09</b>. Расчёты сделаны под конкретный анализ воды, и отклонение может означать, что на месте что-то другое: другой насос, другая труба, другая комплектация.
+</div>
+
+<div class="card" style="margin-top:30px">
+  <h3 style="margin-top:0">Работы выполнены</h3>
+  <div class="tw"><table>
+    <tbody>
+      <tr><td style="width:46%">Монтажник, ФИО</td><td class="bigfield"></td></tr>
+      <tr><td>Дата выполнения</td><td class="bigfield"></td></tr>
+      <tr><td>Подпись</td><td class="bigfield"></td></tr>
+      <tr><td>Замечания, что осталось</td><td class="bigfield" style="min-height:60px"></td></tr>
+    </tbody>
+  </table></div>
 </div>
 
 <footer>
